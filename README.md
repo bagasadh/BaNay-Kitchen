@@ -4,15 +4,6 @@ Website katalog dan pemesanan WhatsApp untuk **BaNay Kitchen** (Homemade Pastry 
 
 ---
 
-## Menu
-- **Banana Strudel** (Pastry pisang renyah isi cokelat lumer & taburan keju)
-- **Banana Milk Crispy** (Puff pastry mangkuk susu vanila lembut)
-- **QQ Ball Dessert** (Bola ubi ungu kenyal & kuah santan creamy)
-- **Beng Roll Pastry** (Pastry gulung isi wafer Beng-Beng)
-- **All Pastry** (Custom order aneka olahan kulit pastry)
-
----
-
 ## Fitur
 - Katalog menu lengkap dengan foto produk
 - Keranjang pesanan langsung kirim ke WhatsApp admin
