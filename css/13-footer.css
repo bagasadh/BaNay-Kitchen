@@ -1,0 +1,51 @@
+/* ----------------------------------------------------------------------------
+   13. FOOTER & FLOATING WHATSAPP BUTTON
+   ------------------------------------------------------------------------- */
+.banay-footer { background: var(--choco-deep); color: var(--cream); padding: 4rem 0 2rem; border-top: 5px solid var(--choco-dark); overflow: hidden; }
+.footer-main-row { display: grid; grid-template-columns: 1.4fr 0.8fr 0.8fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px dashed rgba(247, 232, 211, 0.2); }
+.footer-logo-lockup { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem; }
+.footer-logo-lockup img { width: 58px; height: 58px; border-radius: 50%; border: 3px solid var(--gold); }
+.footer-logo-lockup h4 { font-family: var(--font-cartoon); font-size: 1.45rem; color: var(--gold); }
+.footer-logo-lockup span { font-size: 0.84rem; font-weight: 600; opacity: 0.85; }
+.footer-brand-col p { font-size: 0.94rem; font-weight: 600; opacity: 0.88; max-width: 440px; }
+.footer-nav-col { display: flex; flex-direction: column; gap: 0.55rem; }
+.footer-nav-col h5 { font-family: var(--font-cartoon); font-size: 1.05rem; color: var(--gold); margin-bottom: 0.35rem; }
+.footer-nav-col a { font-size: 0.92rem; font-weight: 600; opacity: 0.88; transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease; }
+.footer-nav-col a:hover { opacity: 1; color: var(--gold); transform: translateX(4px); }
+.footer-signature-banner { padding: 1.8rem 0 1rem; text-align: center; user-select: none; overflow: hidden; }
+.footer-giant-word {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  font-family: var(--font-cartoon);
+  font-size: clamp(1.6rem, 7.8vw, 9.2rem);
+  line-height: 0.95;
+  color: var(--gold);
+  -webkit-text-stroke: clamp(2px, 0.45vw, 6px) var(--ivory);
+  text-shadow: 0 8px 0 var(--choco-dark);
+}
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.2rem;
+  padding-bottom: clamp(4.5rem, 10vw, 2rem);
+  font-size: 0.84rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.floating-wa-widget {
+  position: fixed;
+  bottom: max(18px, calc(env(safe-area-inset-bottom, 0px) + 14px));
+  right: max(18px, calc(env(safe-area-inset-right, 0px) + 14px));
+  z-index: 95;
+}
+.floating-wa-btn {
+  display: inline-flex; align-items: center; gap: 0.55rem; background: var(--choco-deep); color: var(--gold);
+  border: 3.5px solid var(--ivory); border-radius: 999px; padding: 0.72rem 1.3rem;
+  font-family: var(--font-cartoon); font-size: 0.96rem; box-shadow: var(--shadow-cartoon); cursor: pointer; transition: transform 0.2s ease;
+  position: relative;
+}
+.floating-wa-btn:hover { --hover-lift: -3px; --hover-scale: 1.04; background: var(--mocha); }

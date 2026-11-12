@@ -2,13 +2,28 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>BaNay Kitchen — Homemade Pastry &amp; Dessert Buatan Ibu</title>
-  <meta name="description" content="BaNay Kitchen — Usaha pastry & dessert homemade buatan Ibu langsung dari dapur rumah, dinamai dari nama kedua buah hati: Bagas (kakak) & Naylah (adik). Spesialis Banana Strudel, Banana Milk Crispy, QQ Ball Dessert, Beng Roll Pastry & All Pastry." />
-  <!-- Cartoon & Pop Display Fonts (like CRAV / Don Molinico / Palmo): Titan One, Mouse Memoirs, Fredoka -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Mouse+Memoirs&family=Titan+One&display=swap" rel="stylesheet">
+  <meta name="description" content="BaNay Kitchen — Usaha pastry &amp; dessert homemade buatan Ibu langsung dari dapur rumah, dinamai dari nama kedua buah hati: Bagas (kakak) &amp; Naylah (adik). Spesialis Banana Strudel, Banana Milk Crispy, QQ Ball Dessert, Beng Roll Pastry &amp; All Pastry." />
+  <meta name="theme-color" content="#3A1F13" />
+
+  <!-- Favicon & App Icons (Rounded & Transparent) -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/logo-rounded.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+  <!-- Open Graph & Social Media Preview Cards -->
+  <meta property="og:title" content="BaNay Kitchen — Homemade Pastry &amp; Dessert Buatan Ibu" />
+  <meta property="og:description" content="Pastry renyah &amp; cokelat lumer dari dapur rumah sendiri! Banana Strudel, Banana Milk Crispy, QQ Ball Dessert, Beng Roll &amp; All Pastry." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo.jpg" />
+
+  <!-- Cartoon & Pop Display Fonts: Titan One, Mouse Memoirs, Fredoka -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Mouse+Memoirs&family=Titan+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -22,7 +37,7 @@
   <div id="preloader" class="preloader">
     <div class="preloader-card">
       <div class="preloader-seal-wrap">
-        <svg class="Preloader-spin-text" viewBox="0 0 200 200" aria-hidden="true">
+        <svg class="preloader-spin-text" viewBox="0 0 200 200" aria-hidden="true">
           <defs>
             <path id="circlePath" d="M 100, 100 m -74, 0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0" />
           </defs>
@@ -30,7 +45,7 @@
             <textPath href="#circlePath">• BANAY KITCHEN • HOMEMADE BUATAN IBU </textPath>
           </text>
         </svg>
-        <img src="assets/logo.jpg" alt="Logo BaNay Kitchen" class="preloader-logo" />
+        <img src="assets/logo.jpg" alt="Logo BaNay Kitchen" class="preloader-logo" width="126" height="126" decoding="async" fetchpriority="high" />
       </div>
       <div class="preloader-meta">
         <span class="preloader-tag">HOMEMADE BUATAN IBU · DAPUR RUMAH</span>
@@ -48,7 +63,7 @@
   <header class="navbar-wrap" id="top">
     <div class="navbar-pill">
       <a href="#top" class="brand-logo" aria-label="BaNay Kitchen Home">
-        <img src="assets/logo.jpg" alt="Logo BaNay Kitchen" class="brand-logo-img" />
+        <img src="assets/logo.jpg" alt="Logo BaNay Kitchen" class="brand-logo-img" width="46" height="46" decoding="async" />
         <div class="brand-logo-meta">
           <span class="brand-logo-name">BANAY KITCHEN</span>
           <small class="brand-logo-sub">Homemade Buatan Ibu</small>
@@ -65,9 +80,9 @@
 
       <div class="nav-actions">
         <a href="#menu" class="btn-warm btn-gold">ORDER WA</a>
-        <button type="button" class="btn-warm btn-icon-menu" id="open-menu-btn" aria-label="Buka Keranjang & Menu">
+        <button type="button" class="btn-warm btn-icon-menu" id="open-menu-btn" aria-label="Buka Keranjang &amp; Menu">
           <span>KERANJANG</span>
-          <span class="nav-cart-count" id="nav-cart-count">2</span>
+          <span class="nav-cart-count" id="nav-cart-count">0</span>
         </button>
       </div>
     </div>
@@ -75,10 +90,10 @@
 
   <!-- Slide-out Quick Menu & Cart Drawer -->
   <div class="drawer-backdrop" id="drawer-backdrop"></div>
-  <aside class="side-drawer" id="side-drawer" aria-label="Navigasi & Keranjang Pesanan">
+  <aside class="side-drawer" id="side-drawer" aria-label="Navigasi &amp; Keranjang Pesanan">
     <div class="drawer-header">
       <div class="drawer-brand">
-        <img src="assets/logo.jpg" alt="BaNay Kitchen" />
+        <img src="assets/logo.jpg" alt="BaNay Kitchen" width="46" height="46" decoding="async" />
         <div>
           <strong>BANAY KITCHEN</strong>
           <small>Homemade Buatan Ibu · Dapur Rumah</small>
@@ -105,7 +120,7 @@
         <div class="drawer-cart-footer">
           <div class="drawer-total-row">
             <span>Estimasi Total:</span>
-            <strong id="drawer-cart-total">Rp 100.000</strong>
+            <strong id="drawer-cart-total">Rp 0</strong>
           </div>
           <button type="button" id="drawer-checkout-wa" class="btn-warm btn-wa full-width">
             KIRIM PESANAN KE WHATSAPP ↗
@@ -117,17 +132,17 @@
 
   <main>
     <!-- =====================================================================
-         3. CARTOON POP HERO SECTION (CRAV / PALMO / DON MOLINICO VIBE IN CHOCO THEME)
+         3. CARTOON POP HERO SECTION
     ====================================================================== -->
     <section class="hero-section">
-      <!-- Giant Cartoon Background Display Typography -->
+      <!-- Giant Cartoon Background Typography -->
       <div class="hero-giant-backdrop" aria-hidden="true">
         <span class="giant-word-left" id="hero-word-left">BANAY</span>
         <span class="giant-word-right" id="hero-word-right">KITCHEN</span>
       </div>
 
       <div class="hero-grid">
-        <!-- Left Column: Playful Cartoon Storytelling -->
+        <!-- Left Column: Storytelling & Action -->
         <div class="hero-copy-col">
           <div class="eyebrow-pill" data-anim="pop-scale">
             <span class="sparkle-dot">★</span>
@@ -175,39 +190,43 @@
         <!-- Right Column: Cartoon Sticker & Arch Showcase Stage -->
         <div class="hero-visual-col">
           <div class="hero-arch-stage" id="hero-arch-stage">
-            <!-- Tilted Cartoon Sticker Badges -->
-            <div class="cartoon-sticker sticker-top-left" id="hero-sticker-1">FRESH FROM OVEN!</div>
-            <div class="cartoon-sticker sticker-bottom-right" id="hero-sticker-2">NO PELIT TOPPING!</div>
+            <!-- Arch Frame: Anchors Stickers, Mascot Seal & Main Card together -->
+            <div class="hero-arch-frame">
+              <div class="cartoon-sticker sticker-top-left" id="hero-sticker-1">FRESH FROM OVEN!</div>
+              <div class="cartoon-sticker sticker-bottom-right" id="hero-sticker-2">NO PELIT TOPPING!</div>
 
-            <!-- Rotating Stamp Seal -->
-            <div class="rotating-seal-badge" id="hero-seal-badge">
-              <img src="assets/logo.jpg" alt="BaNay Kitchen Sibling Mascot" />
-            </div>
+              <div class="rotating-seal-badge" id="hero-seal-badge">
+                <img src="assets/logo.jpg" alt="BaNay Kitchen Mascot" width="116" height="116" decoding="async" />
+              </div>
 
-            <!-- Main Tall Arch Window: Banana Milk Crispy -->
-            <div class="arch-main-card tilt-card" data-anim="pop-scale">
-              <img src="assets/banana-milk-crispy.jpg" alt="Banana Milk Crispy BaNay Kitchen" />
-              <div class="arch-card-Tag">
-                <span>FAVORIT · RP 35.000</span>
-                <strong>BANANA MILK CRISPY</strong>
+              <!-- Main Arch Window: Banana Milk Crispy -->
+              <div class="arch-main-card tilt-card" data-anim="pop-scale">
+                <img src="assets/banana-milk-crispy.jpg" alt="Banana Milk Crispy BaNay Kitchen" width="465" height="660" decoding="async" fetchpriority="high" />
+                <div class="arch-card-tag">
+                  <span>FAVORIT · RP 35.000</span>
+                  <strong>BANANA MILK CRISPY</strong>
+                </div>
               </div>
             </div>
 
-            <!-- Floating Orbit Card Left: Banana Strudel -->
-            <div class="orbit-card orbit-strudel tilt-card" id="orbit-strudel" data-anim="slide-left">
-              <img src="assets/chocolate-banana-strudel.jpg" alt="Banana Strudel BaNay Kitchen" />
-              <div class="orbit-meta">
-                <span>BEST SELLER · RP 65K</span>
-                <strong>BANANA STRUDEL</strong>
+            <!-- 2-Column Showcase Row Below Main Arch (Zero Overlap on Desktop & Mobile) -->
+            <div class="hero-orbit-row">
+              <!-- Orbit Card Left: Banana Strudel -->
+              <div class="orbit-card orbit-strudel tilt-card" id="orbit-strudel" data-anim="slide-left">
+                <img src="assets/chocolate-banana-strudel.jpg" alt="Banana Strudel BaNay Kitchen" width="473" height="605" decoding="async" />
+                <div class="orbit-meta">
+                  <span>BEST SELLER · RP 65K</span>
+                  <strong>BANANA STRUDEL</strong>
+                </div>
               </div>
-            </div>
 
-            <!-- Floating Orbit Card Right: QQ Ball Dessert -->
-            <div class="orbit-card orbit-qqball tilt-card" id="orbit-qqball" data-anim="slide-right">
-              <img src="assets/qq-ball-dessert.jpg" alt="QQ Ball Dessert BaNay Kitchen" />
-              <div class="orbit-meta">
-                <span>CREAMY · RP 12K</span>
-                <strong>QQ BALL DESSERT</strong>
+              <!-- Orbit Card Right: QQ Ball Dessert -->
+              <div class="orbit-card orbit-qqball tilt-card" id="orbit-qqball" data-anim="slide-right">
+                <img src="assets/qq-ball-dessert.jpg" alt="QQ Ball Dessert BaNay Kitchen" width="575" height="962" decoding="async" />
+                <div class="orbit-meta">
+                  <span>CREAMY · RP 12K</span>
+                  <strong>QQ BALL DESSERT</strong>
+                </div>
               </div>
             </div>
           </div>
@@ -221,6 +240,31 @@
     <section class="ribbon-marquee-section" aria-label="Highlight BaNay Kitchen">
       <div class="ribbon-band band-dark">
         <div class="ribbon-track" id="ribbon-track-1">
+          <!-- 6 Duplicate Sets for seamless infinite looping on all screens -->
+          <span>★ BANAY KITCHEN · HOMEMADE BUATAN IBU</span>
+          <span>🥐 BANANA STRUDEL RP 65K</span>
+          <span>🍌 BANANA MILK CRISPY RP 35K</span>
+          <span>🍨 QQ BALL DESSERT RP 12K</span>
+          <span>🍫 BENG ROLL PASTRY RP 20K</span>
+          <span>✨ DINAMAI DARI KAKAK BAGAS &amp; ADIK NAYLAH</span>
+          <span>★ BANAY KITCHEN · HOMEMADE BUATAN IBU</span>
+          <span>🥐 BANANA STRUDEL RP 65K</span>
+          <span>🍌 BANANA MILK CRISPY RP 35K</span>
+          <span>🍨 QQ BALL DESSERT RP 12K</span>
+          <span>🍫 BENG ROLL PASTRY RP 20K</span>
+          <span>✨ DINAMAI DARI KAKAK BAGAS &amp; ADIK NAYLAH</span>
+          <span>★ BANAY KITCHEN · HOMEMADE BUATAN IBU</span>
+          <span>🥐 BANANA STRUDEL RP 65K</span>
+          <span>🍌 BANANA MILK CRISPY RP 35K</span>
+          <span>🍨 QQ BALL DESSERT RP 12K</span>
+          <span>🍫 BENG ROLL PASTRY RP 20K</span>
+          <span>✨ DINAMAI DARI KAKAK BAGAS &amp; ADIK NAYLAH</span>
+          <span>★ BANAY KITCHEN · HOMEMADE BUATAN IBU</span>
+          <span>🥐 BANANA STRUDEL RP 65K</span>
+          <span>🍌 BANANA MILK CRISPY RP 35K</span>
+          <span>🍨 QQ BALL DESSERT RP 12K</span>
+          <span>🍫 BENG ROLL PASTRY RP 20K</span>
+          <span>✨ DINAMAI DARI KAKAK BAGAS &amp; ADIK NAYLAH</span>
           <span>★ BANAY KITCHEN · HOMEMADE BUATAN IBU</span>
           <span>🥐 BANANA STRUDEL RP 65K</span>
           <span>🍌 BANANA MILK CRISPY RP 35K</span>
@@ -237,6 +281,23 @@
       </div>
       <div class="ribbon-band band-gold">
         <div class="ribbon-track" id="ribbon-track-2">
+          <!-- 6 Duplicate Sets for seamless infinite looping on all screens -->
+          <span>🏠 FRESH FROM OUR HOME KITCHEN</span>
+          <span>🧀 FULL TOPPING KEJU &amp; ALMOND</span>
+          <span>📲 ORDER VIA WHATSAPP 0812-4449-609</span>
+          <span>📦 BISA REQUEST ALL PASTRY</span>
+          <span>🏠 FRESH FROM OUR HOME KITCHEN</span>
+          <span>🧀 FULL TOPPING KEJU &amp; ALMOND</span>
+          <span>📲 ORDER VIA WHATSAPP 0812-4449-609</span>
+          <span>📦 BISA REQUEST ALL PASTRY</span>
+          <span>🏠 FRESH FROM OUR HOME KITCHEN</span>
+          <span>🧀 FULL TOPPING KEJU &amp; ALMOND</span>
+          <span>📲 ORDER VIA WHATSAPP 0812-4449-609</span>
+          <span>📦 BISA REQUEST ALL PASTRY</span>
+          <span>🏠 FRESH FROM OUR HOME KITCHEN</span>
+          <span>🧀 FULL TOPPING KEJU &amp; ALMOND</span>
+          <span>📲 ORDER VIA WHATSAPP 0812-4449-609</span>
+          <span>📦 BISA REQUEST ALL PASTRY</span>
           <span>🏠 FRESH FROM OUR HOME KITCHEN</span>
           <span>🧀 FULL TOPPING KEJU &amp; ALMOND</span>
           <span>📲 ORDER VIA WHATSAPP 0812-4449-609</span>
@@ -262,9 +323,8 @@
           </h2>
         </div>
 
-        <!-- Interactive Sibling Equation & Bento Grid -->
         <div class="story-bento-grid">
-          <!-- Big Left Card: Logo & Meaning of BaNay -->
+          <!-- Main Card: Meaning of BaNay -->
           <article class="bento-card bento-main-story tilt-card" data-anim="slide-left">
             <div class="sibling-badge-row">
               <span class="name-pill"><strong>BA</strong>GAS (KAKAK LAKI-LAKI)</span>
@@ -274,7 +334,7 @@
 
             <div class="story-logo-stage">
               <div class="story-logo-halo" id="story-logo-halo"></div>
-              <img src="assets/logo.jpg" alt="Ilustrasi Kakak Bagas dan Adik Naylah - Logo BaNay Kitchen" class="story-main-logo" />
+              <img src="assets/logo.jpg" alt="Ilustrasi Kakak Bagas dan Adik Naylah - Logo BaNay Kitchen" class="story-main-logo" width="205" height="205" loading="lazy" decoding="async" />
               <span class="cartoon-sticker sticker-story">RESEP HOMEMADE IBU!</span>
             </div>
 
@@ -286,7 +346,7 @@
             </div>
           </article>
 
-          <!-- Right Column: 3 Pillar Cards that Scrub & Stagger -->
+          <!-- 3 Pillar Cards -->
           <div class="bento-side-stack">
             <article class="bento-card bento-pillar tilt-card" data-anim="slide-right">
               <div class="pillar-num">01</div>
@@ -323,7 +383,7 @@
     </section>
 
     <!-- =====================================================================
-         6. KATALOG MENU DAPUR KAMI & ORDER LANGSUNG KE WHATSAPP
+         6. KATALOG MENU DAPUR & ORDER VIA WHATSAPP
     ====================================================================== -->
     <section class="menu-section" id="menu">
       <div class="section-container">
@@ -340,12 +400,12 @@
           </p>
         </div>
 
-        <!-- 5 Cartoon-Pop Arch Menu Cards -->
+        <!-- 5 Arch Menu Cards -->
         <div class="menu-arch-grid">
-          <!-- 1. Banana Strudel (Rp 65.000) -->
+          <!-- 1. Banana Strudel -->
           <article class="menu-arch-card tilt-card" data-anim="fade-up">
             <div class="menu-arch-photo">
-              <img src="assets/chocolate-banana-strudel.jpg" alt="Banana Strudel BaNay Kitchen" />
+              <img src="assets/chocolate-banana-strudel.jpg" alt="Banana Strudel BaNay Kitchen" width="473" height="605" loading="lazy" decoding="async" />
               <span class="arch-badge">BEST SELLER</span>
               <span class="arch-price-pill" id="price-strudel-display">Rp 65.000</span>
             </div>
@@ -359,7 +419,6 @@
               <p>
                 Strudel ukuran box besar dengan kulit pastry renyah berlapis, isian pisang manis &amp; lelehan cokelat lumer, ditambah taburan keju parut dan cokelat di atasnya.
               </p>
-
               <div class="menu-card-actions">
                 <div class="qty-stepper" aria-label="Jumlah Banana Strudel">
                   <button type="button" class="qty-btn" data-action="dec" data-id="strudel">−</button>
@@ -377,10 +436,10 @@
             </div>
           </article>
 
-          <!-- 2. Banana Milk Crispy (Rp 35.000) -->
+          <!-- 2. Banana Milk Crispy -->
           <article class="menu-arch-card tilt-card" data-anim="fade-up">
             <div class="menu-arch-photo">
-              <img src="assets/banana-milk-crispy.jpg" alt="Banana Milk Crispy BaNay Kitchen" />
+              <img src="assets/banana-milk-crispy.jpg" alt="Banana Milk Crispy BaNay Kitchen" width="465" height="660" loading="lazy" decoding="async" />
               <span class="arch-badge badge-gold">FAVORIT</span>
               <span class="arch-price-pill" id="price-crispy-display">Rp 35.000</span>
             </div>
@@ -394,7 +453,6 @@
               <p>
                 Pastry renyah berbentuk pisang dengan isian susu &amp; pisang lembut, bertabur keju parut gondrong, choco chips, dan irisan kacang almond panggang.
               </p>
-
               <div class="menu-card-actions">
                 <div class="qty-stepper" aria-label="Jumlah Banana Milk Crispy">
                   <button type="button" class="qty-btn" data-action="dec" data-id="crispy">−</button>
@@ -412,10 +470,10 @@
             </div>
           </article>
 
-          <!-- 3. QQ Ball Dessert (Rp 12.000) -->
+          <!-- 3. QQ Ball Dessert -->
           <article class="menu-arch-card tilt-card" data-anim="fade-up">
             <div class="menu-arch-photo">
-              <img src="assets/qq-ball-dessert.jpg" alt="QQ Ball Dessert BaNay Kitchen" />
+              <img src="assets/qq-ball-dessert.jpg" alt="QQ Ball Dessert BaNay Kitchen" width="575" height="962" loading="lazy" decoding="async" />
               <span class="arch-badge">SEGAR &amp; CREAMY</span>
               <span class="arch-price-pill" id="price-qqball-display">Rp 12.000</span>
             </div>
@@ -429,7 +487,6 @@
               <p>
                 Kenikmatan manis yang menggoda! Dessert cup berisi bola-bola ubi kuning &amp; ungu yang kenyal (<em>chewy</em>), berpadu kuah susu <em>creamy</em> dan biji selasih segar.
               </p>
-
               <div class="menu-card-actions">
                 <div class="qty-stepper" aria-label="Jumlah QQ Ball Dessert">
                   <button type="button" class="qty-btn" data-action="dec" data-id="qqball">−</button>
@@ -447,10 +504,10 @@
             </div>
           </article>
 
-          <!-- 4. Beng Roll Pastry (Rp 20.000) -->
+          <!-- 4. Beng Roll Pastry -->
           <article class="menu-arch-card tilt-card" data-anim="fade-up">
             <div class="menu-arch-photo">
-              <img src="assets/beng-roll-pastry.jpg" alt="Beng Roll Pastry BaNay Kitchen" />
+              <img src="assets/beng-roll-pastry.jpg" alt="Beng Roll Pastry BaNay Kitchen" width="1200" height="896" loading="lazy" decoding="async" />
               <span class="arch-badge badge-gold">CHOCO CRUNCH</span>
               <span class="arch-price-pill" id="price-bengroll-display">Rp 20.000</span>
             </div>
@@ -464,7 +521,6 @@
               <p>
                 Gulungan kulit <em>puff pastry</em> garing di luar dengan isian wafer cokelat karamel <em>crunchy</em> di bagian dalam, lengkap dengan <em>choco drizzle</em> dan keju parut.
               </p>
-
               <div class="menu-card-actions">
                 <div class="qty-stepper" aria-label="Jumlah Beng Roll Pastry">
                   <button type="button" class="qty-btn" data-action="dec" data-id="bengroll">−</button>
@@ -482,10 +538,10 @@
             </div>
           </article>
 
-          <!-- 5. All Pastry — Custom Request Banner Card -->
+          <!-- 5. All Pastry (Custom Request) -->
           <article class="menu-arch-card menu-arch-wide tilt-card" data-anim="pop-scale">
             <div class="menu-arch-photo">
-              <img src="assets/all-pastry.jpg" alt="All Pastry - Aneka Kue Kulit Pastry BaNay Kitchen" />
+              <img src="assets/all-pastry.jpg" alt="All Pastry - Aneka Kue Kulit Pastry BaNay Kitchen" width="900" height="500" loading="lazy" decoding="async" />
               <span class="arch-badge">TERGANTUNG REQUEST PEMBELI</span>
               <span class="arch-price-pill" id="price-allpastry-display">SESUAI REQUEST</span>
             </div>
@@ -499,7 +555,6 @@
               <p>
                 Mau pesan kreasi kue lainnya yang dibuat dari kulit <em>pastry</em>? Di dapur rumah <strong>BaNay Kitchen</strong>, harga dan varian <strong>tergantung request pembeli</strong> — bebas pilih kreasi kue kulit pastry untuk camilan rumah, <em>hampers</em>, atau acara spesial!
               </p>
-
               <div class="menu-card-actions">
                 <div class="qty-stepper" aria-label="Jumlah Request All Pastry">
                   <button type="button" class="qty-btn" data-action="dec" data-id="allpastry">−</button>
@@ -517,49 +572,14 @@
             </div>
           </article>
         </div>
-
-        <!-- Custom Order & Direct WhatsApp Checkout Box -->
-        <div class="custom-order-sheet" data-anim="fade-up">
-          <div class="order-sheet-info">
-            <span class="eyebrow-pill">★ FORM ORDER CEPAT DAPUR BANAY</span>
-            <h3>PESAN SEKALIGUS &amp; ATUR PENGAMBILAN</h3>
-            <p>
-              Lengkapi nama dan catatan pesananmu di samping. Semua item yang ada di keranjangmu akan otomatis terangkum rapi ke chat WhatsApp <strong>BaNay Kitchen (0812-4449-609)</strong>.
-            </p>
-          </div>
-
-          <form id="custom-wa-form" class="order-sheet-form">
-            <div class="form-row-split">
-              <div class="form-group">
-                <label for="cust-name">NAMA PEMESAN</label>
-                <input type="text" id="cust-name" placeholder="Contoh: Kak Rina" />
-              </div>
-              <div class="form-group">
-                <label for="cust-delivery">METODE PENGAMBILAN</label>
-                <select id="cust-delivery">
-                  <option value="Ambil di Rumah (Pick Up ke Dapur BaNay)">Ambil di Rumah (Pick Up ke Dapur BaNay)</option>
-                  <option value="Kirim via Kurir Instan / Ojol">Kirim via Kurir Instan / Ojol</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="cust-note">CATATAN / REQUEST KUE PASTRY (OPSIONAL)</label>
-              <input type="text" id="cust-note" placeholder="Contoh: Minta ekstra keju / ambil sore jam 4 ya" />
-            </div>
-            <button type="submit" class="btn-warm btn-wa btn-lg full-width">
-              <span>KIRIM RINCIAN PESANAN KE WHATSAPP (0812-4449-609)</span>
-              <span>↗</span>
-            </button>
-          </form>
-        </div>
       </div>
     </section>
 
     <!-- =====================================================================
-         7. GALERI DAPUR KAMI (FULL-BLEED DUAL-ROW + CENTERED SHOWCASE — ZERO EMPTY GAPS!)
+         7. GALERI DAPUR KAMI
     ====================================================================== -->
     <section class="lookbook-section" id="galeri">
-      <!-- Top Wavy Melted Chocolate Divider -->
+      <!-- Top Melted Chocolate Wave Divider -->
       <div class="choco-wave-top" aria-hidden="true">
         <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
           <path fill="#3A1F13" d="M0,30 C320,110 640,-20 960,50 C1200,100 1350,20 1440,40 L1440,100 L0,100 Z"></path>
@@ -578,11 +598,11 @@
           </p>
         </div>
 
-        <!-- Centered 4-Card Fanned Polaroid Stage (Always Balanced & Centered on Any Screen!) -->
+        <!-- 4-Card Fanned Polaroid Stage -->
         <div class="gallery-fanned-grid" id="gallery-fanned-grid">
           <figure class="gallery-polaroid pol-1 tilt-card" data-anim="fade-up">
             <div class="pol-img-box">
-              <img src="assets/chocolate-banana-strudel.jpg" alt="Banana Strudel Fresh dari Dapur" />
+              <img src="assets/chocolate-banana-strudel.jpg" alt="Banana Strudel Fresh dari Dapur" width="473" height="605" loading="lazy" decoding="async" />
               <span class="pol-tag">RP 65.000</span>
             </div>
             <figcaption>
@@ -593,7 +613,7 @@
 
           <figure class="gallery-polaroid pol-2 tilt-card" data-anim="fade-up">
             <div class="pol-img-box">
-              <img src="assets/banana-milk-crispy.jpg" alt="Banana Milk Crispy Topping Keju & Almond" />
+              <img src="assets/banana-milk-crispy.jpg" alt="Banana Milk Crispy Topping Keju &amp; Almond" width="465" height="660" loading="lazy" decoding="async" />
               <span class="pol-tag tag-gold">RP 35.000</span>
             </div>
             <figcaption>
@@ -604,7 +624,7 @@
 
           <figure class="gallery-polaroid pol-3 tilt-card" data-anim="fade-up">
             <div class="pol-img-box">
-              <img src="assets/qq-ball-dessert.jpg" alt="QQ Ball Dessert Cup BaNay Kitchen" />
+              <img src="assets/qq-ball-dessert.jpg" alt="QQ Ball Dessert Cup BaNay Kitchen" width="575" height="962" loading="lazy" decoding="async" />
               <span class="pol-tag">RP 12.000</span>
             </div>
             <figcaption>
@@ -615,7 +635,7 @@
 
           <figure class="gallery-polaroid pol-4 tilt-card" data-anim="fade-up">
             <div class="pol-img-box">
-              <img src="assets/beng-roll-pastry.jpg" alt="Beng Roll Pastry Cokelat Renyah" />
+              <img src="assets/beng-roll-pastry.jpg" alt="Beng Roll Pastry Cokelat Renyah" width="1200" height="896" loading="lazy" decoding="async" />
               <span class="pol-tag tag-gold">RP 20.000</span>
             </div>
             <figcaption>
@@ -626,26 +646,55 @@
         </div>
       </div>
 
-      <!-- Full-Width Seamless Infinite Filmstrip (12 Cards Spanning >3800px so NO Empty Space Ever!) -->
+      <!-- Infinite Marquee Filmstrip (Seamless 4-Set Loop for Wide & Ultrawide Screens) -->
       <div class="filmstrip-viewport">
         <div class="filmstrip-track" id="filmstrip-track">
-          <div class="film-pill"><img src="assets/chocolate-banana-strudel.jpg" alt="Strudel" /><span>BANANA STRUDEL</span></div>
-          <div class="film-pill"><img src="assets/banana-milk-crispy.jpg" alt="Crispy" /><span>BANANA MILK CRISPY</span></div>
-          <div class="film-pill"><img src="assets/qq-ball-dessert.jpg" alt="QQ Ball" /><span>QQ BALL DESSERT</span></div>
-          <div class="film-pill"><img src="assets/beng-roll-pastry.jpg" alt="Beng Roll" /><span>BENG ROLL PASTRY</span></div>
-          <div class="film-pill"><img src="assets/crispy-closeup.jpg" alt="Topping" /><span>FULL TOPPING KEJU &amp; ALMOND</span></div>
-          <div class="film-pill"><img src="assets/strudel-closeup.jpg" alt="Oven" /><span>FRESH DARI DAPUR RUMAH</span></div>
-          <!-- Duplicated set so ultrawide monitors are 100% filled edge-to-edge -->
-          <div class="film-pill"><img src="assets/chocolate-banana-strudel.jpg" alt="Strudel" /><span>BANANA STRUDEL</span></div>
-          <div class="film-pill"><img src="assets/banana-milk-crispy.jpg" alt="Crispy" /><span>BANANA MILK CRISPY</span></div>
-          <div class="film-pill"><img src="assets/qq-ball-dessert.jpg" alt="QQ Ball" /><span>QQ BALL DESSERT</span></div>
-          <div class="film-pill"><img src="assets/beng-roll-pastry.jpg" alt="Beng Roll" /><span>BENG ROLL PASTRY</span></div>
-          <div class="film-pill"><img src="assets/crispy-closeup.jpg" alt="Topping" /><span>FULL TOPPING KEJU &amp; ALMOND</span></div>
-          <div class="film-pill"><img src="assets/strudel-closeup.jpg" alt="Oven" /><span>FRESH DARI DAPUR RUMAH</span></div>
+          <!-- Set 1 -->
+          <div class="film-pill"><img src="assets/chocolate-banana-strudel.jpg" alt="Strudel" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA STRUDEL</span></div>
+          <div class="film-pill"><img src="assets/banana-milk-crispy.jpg" alt="Crispy" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA MILK CRISPY</span></div>
+          <div class="film-pill"><img src="assets/qq-ball-dessert.jpg" alt="QQ Ball" width="54" height="54" loading="lazy" decoding="async" /><span>QQ BALL DESSERT</span></div>
+          <div class="film-pill"><img src="assets/beng-roll-pastry.jpg" alt="Beng Roll" width="54" height="54" loading="lazy" decoding="async" /><span>BENG ROLL PASTRY</span></div>
+          <div class="film-pill"><img src="assets/crispy-closeup.jpg" alt="Topping" width="54" height="54" loading="lazy" decoding="async" /><span>FULL TOPPING KEJU &amp; ALMOND</span></div>
+          <div class="film-pill"><img src="assets/strudel-closeup.jpg" alt="Oven" width="54" height="54" loading="lazy" decoding="async" /><span>FRESH DARI DAPUR RUMAH</span></div>
+          <!-- Set 2 -->
+          <div class="film-pill"><img src="assets/chocolate-banana-strudel.jpg" alt="Strudel" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA STRUDEL</span></div>
+          <div class="film-pill"><img src="assets/banana-milk-crispy.jpg" alt="Crispy" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA MILK CRISPY</span></div>
+          <div class="film-pill"><img src="assets/qq-ball-dessert.jpg" alt="QQ Ball" width="54" height="54" loading="lazy" decoding="async" /><span>QQ BALL DESSERT</span></div>
+          <div class="film-pill"><img src="assets/beng-roll-pastry.jpg" alt="Beng Roll" width="54" height="54" loading="lazy" decoding="async" /><span>BENG ROLL PASTRY</span></div>
+          <div class="film-pill"><img src="assets/crispy-closeup.jpg" alt="Topping" width="54" height="54" loading="lazy" decoding="async" /><span>FULL TOPPING KEJU &amp; ALMOND</span></div>
+          <div class="film-pill"><img src="assets/strudel-closeup.jpg" alt="Oven" width="54" height="54" loading="lazy" decoding="async" /><span>FRESH DARI DAPUR RUMAH</span></div>
+          <!-- Set 3 -->
+          <div class="film-pill"><img src="assets/chocolate-banana-strudel.jpg" alt="Strudel" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA STRUDEL</span></div>
+          <div class="film-pill"><img src="assets/banana-milk-crispy.jpg" alt="Crispy" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA MILK CRISPY</span></div>
+          <div class="film-pill"><img src="assets/qq-ball-dessert.jpg" alt="QQ Ball" width="54" height="54" loading="lazy" decoding="async" /><span>QQ BALL DESSERT</span></div>
+          <div class="film-pill"><img src="assets/beng-roll-pastry.jpg" alt="Beng Roll" width="54" height="54" loading="lazy" decoding="async" /><span>BENG ROLL PASTRY</span></div>
+          <div class="film-pill"><img src="assets/crispy-closeup.jpg" alt="Topping" width="54" height="54" loading="lazy" decoding="async" /><span>FULL TOPPING KEJU &amp; ALMOND</span></div>
+          <div class="film-pill"><img src="assets/strudel-closeup.jpg" alt="Oven" width="54" height="54" loading="lazy" decoding="async" /><span>FRESH DARI DAPUR RUMAH</span></div>
+          <!-- Set 4 -->
+          <div class="film-pill"><img src="assets/chocolate-banana-strudel.jpg" alt="Strudel" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA STRUDEL</span></div>
+          <div class="film-pill"><img src="assets/banana-milk-crispy.jpg" alt="Crispy" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA MILK CRISPY</span></div>
+          <div class="film-pill"><img src="assets/qq-ball-dessert.jpg" alt="QQ Ball" width="54" height="54" loading="lazy" decoding="async" /><span>QQ BALL DESSERT</span></div>
+          <div class="film-pill"><img src="assets/beng-roll-pastry.jpg" alt="Beng Roll" width="54" height="54" loading="lazy" decoding="async" /><span>BENG ROLL PASTRY</span></div>
+          <div class="film-pill"><img src="assets/crispy-closeup.jpg" alt="Topping" width="54" height="54" loading="lazy" decoding="async" /><span>FULL TOPPING KEJU &amp; ALMOND</span></div>
+          <div class="film-pill"><img src="assets/strudel-closeup.jpg" alt="Oven" width="54" height="54" loading="lazy" decoding="async" /><span>FRESH DARI DAPUR RUMAH</span></div>
+          <!-- Set 5 -->
+          <div class="film-pill"><img src="assets/chocolate-banana-strudel.jpg" alt="Strudel" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA STRUDEL</span></div>
+          <div class="film-pill"><img src="assets/banana-milk-crispy.jpg" alt="Crispy" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA MILK CRISPY</span></div>
+          <div class="film-pill"><img src="assets/qq-ball-dessert.jpg" alt="QQ Ball" width="54" height="54" loading="lazy" decoding="async" /><span>QQ BALL DESSERT</span></div>
+          <div class="film-pill"><img src="assets/beng-roll-pastry.jpg" alt="Beng Roll" width="54" height="54" loading="lazy" decoding="async" /><span>BENG ROLL PASTRY</span></div>
+          <div class="film-pill"><img src="assets/crispy-closeup.jpg" alt="Topping" width="54" height="54" loading="lazy" decoding="async" /><span>FULL TOPPING KEJU &amp; ALMOND</span></div>
+          <div class="film-pill"><img src="assets/strudel-closeup.jpg" alt="Oven" width="54" height="54" loading="lazy" decoding="async" /><span>FRESH DARI DAPUR RUMAH</span></div>
+          <!-- Set 6 -->
+          <div class="film-pill"><img src="assets/chocolate-banana-strudel.jpg" alt="Strudel" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA STRUDEL</span></div>
+          <div class="film-pill"><img src="assets/banana-milk-crispy.jpg" alt="Crispy" width="54" height="54" loading="lazy" decoding="async" /><span>BANANA MILK CRISPY</span></div>
+          <div class="film-pill"><img src="assets/qq-ball-dessert.jpg" alt="QQ Ball" width="54" height="54" loading="lazy" decoding="async" /><span>QQ BALL DESSERT</span></div>
+          <div class="film-pill"><img src="assets/beng-roll-pastry.jpg" alt="Beng Roll" width="54" height="54" loading="lazy" decoding="async" /><span>BENG ROLL PASTRY</span></div>
+          <div class="film-pill"><img src="assets/crispy-closeup.jpg" alt="Topping" width="54" height="54" loading="lazy" decoding="async" /><span>FULL TOPPING KEJU &amp; ALMOND</span></div>
+          <div class="film-pill"><img src="assets/strudel-closeup.jpg" alt="Oven" width="54" height="54" loading="lazy" decoding="async" /><span>FRESH DARI DAPUR RUMAH</span></div>
         </div>
       </div>
 
-      <!-- Bottom Wavy Melted Chocolate Divider -->
+      <!-- Bottom Melted Chocolate Wave Divider -->
       <div class="choco-wave-bottom" aria-hidden="true">
         <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
           <path fill="#F7E8D3" d="M0,50 C380,-10 760,110 1120,30 C1280,0 1380,40 1440,60 L1440,100 L0,100 Z"></path>
@@ -654,7 +703,7 @@
     </section>
 
     <!-- =====================================================================
-         8. LOKASI RUMAH KAMI & INSTAGRAM RESMI (@BANAY_KITCHEN)
+         8. LOKASI RUMAH & INSTAGRAM RESMI
     ====================================================================== -->
     <section class="location-section" id="lokasi">
       <div class="section-container">
@@ -667,7 +716,7 @@
         </div>
 
         <div class="location-ig-grid">
-          <!-- Home Kitchen Location & Google Maps Card -->
+          <!-- Home Kitchen Location Card -->
           <div class="home-location-card tilt-card" data-anim="slide-left">
             <div class="loc-card-top">
               <span class="live-status-badge">
@@ -712,10 +761,10 @@
             </div>
           </div>
 
-          <!-- Official Instagram Card (@banay_kitchen) -->
+          <!-- Official Instagram Card -->
           <div class="ig-atelier-card tilt-card" data-anim="slide-right">
             <div class="ig-card-header">
-              <img src="assets/logo.jpg" alt="Logo @banay_kitchen" class="ig-profile-pic" />
+              <img src="assets/logo.jpg" alt="Logo @banay_kitchen" class="ig-profile-pic" width="68" height="68" loading="lazy" decoding="async" />
               <div class="ig-profile-info">
                 <span class="ig-verified-tag">OFFICIAL INSTAGRAM</span>
                 <h3>@BANAY_KITCHEN</h3>
@@ -729,19 +778,19 @@
 
             <div class="ig-gallery-grid">
               <a href="https://www.instagram.com/banay_kitchen?cplk=OTV3bjJnamZrZmNy" target="_blank" rel="noopener noreferrer" class="ig-thumb">
-                <img src="assets/chocolate-banana-strudel.jpg" alt="IG Banana Strudel" />
+                <img src="assets/chocolate-banana-strudel.jpg" alt="IG Banana Strudel" width="473" height="605" loading="lazy" decoding="async" />
                 <span>BANANA STRUDEL ↗</span>
               </a>
               <a href="https://www.instagram.com/banay_kitchen?cplk=OTV3bjJnamZrZmNy" target="_blank" rel="noopener noreferrer" class="ig-thumb">
-                <img src="assets/banana-milk-crispy.jpg" alt="IG Banana Milk Crispy" />
+                <img src="assets/banana-milk-crispy.jpg" alt="IG Banana Milk Crispy" width="465" height="660" loading="lazy" decoding="async" />
                 <span>BANANA CRISPY ↗</span>
               </a>
               <a href="https://www.instagram.com/banay_kitchen?cplk=OTV3bjJnamZrZmNy" target="_blank" rel="noopener noreferrer" class="ig-thumb">
-                <img src="assets/qq-ball-dessert.jpg" alt="IG QQ Ball Dessert" />
+                <img src="assets/qq-ball-dessert.jpg" alt="IG QQ Ball Dessert" width="575" height="962" loading="lazy" decoding="async" />
                 <span>QQ BALL ↗</span>
               </a>
               <a href="https://www.instagram.com/banay_kitchen?cplk=OTV3bjJnamZrZmNy" target="_blank" rel="noopener noreferrer" class="ig-thumb">
-                <img src="assets/beng-roll-pastry.jpg" alt="IG Beng Roll Pastry" />
+                <img src="assets/beng-roll-pastry.jpg" alt="IG Beng Roll Pastry" width="1200" height="896" loading="lazy" decoding="async" />
                 <span>BENG ROLL ↗</span>
               </a>
             </div>
@@ -766,7 +815,7 @@
       <div class="footer-main-row">
         <div class="footer-brand-col">
           <div class="footer-logo-lockup">
-            <img src="assets/logo.jpg" alt="Logo BaNay Kitchen" />
+            <img src="assets/logo.jpg" alt="Logo BaNay Kitchen" width="58" height="58" loading="lazy" decoding="async" />
             <div>
               <h4>BANAY KITCHEN</h4>
               <span>Homemade Buatan Ibu · Dapur Rumah (Bagas &amp; Naylah)</span>
@@ -809,14 +858,15 @@
   <!-- Floating Sticky WhatsApp Widget -->
   <div class="floating-wa-widget">
     <button type="button" id="floating-wa-btn" class="floating-wa-btn" aria-label="Order via WhatsApp">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
       </svg>
-      <span>ORDER WA</span>
-      <span class="cart-badge-count" id="floating-cart-count">2</span>
+      <span class="floating-wa-text">ORDER WA</span>
+      <span class="cart-badge-count" id="floating-cart-count">0</span>
     </button>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+

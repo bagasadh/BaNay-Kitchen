@@ -1,0 +1,35 @@
+/* ----------------------------------------------------------------------------
+   3. SCROLL PROGRESS BAR & PRELOADER
+   ------------------------------------------------------------------------- */
+.scroll-progress-bar {
+  position: fixed; top: 0; left: 0; height: 6px; width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--caramel), var(--choco-deep));
+  z-index: 9995; pointer-events: none;
+}
+
+.preloader {
+  position: fixed; inset: 0; z-index: 9999; background-color: var(--choco-deep);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+  transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.65s ease;
+}
+.preloader.is-hidden { transform: translateY(-100%); pointer-events: none; }
+.preloader-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.4rem; max-width: 390px; }
+.preloader-seal-wrap { position: relative; width: 195px; height: 195px; display: flex; align-items: center; justify-content: center; }
+.preloader-spin-text, .Preloader-spin-text { position: absolute; inset: 0; width: 100%; height: 100%; animation: spinSlow 12s linear infinite; }
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+
+.preloader-logo {
+  width: 126px; height: 126px; border-radius: 50%; object-fit: cover;
+  border: 4px solid var(--gold); box-shadow: 0 8px 0 var(--choco-dark);
+}
+.preloader-tag {
+  display: inline-block; font-family: var(--font-cartoon); font-size: 0.82rem; letter-spacing: 0.08em;
+  color: var(--choco-deep); background: var(--gold); padding: 0.35rem 1rem;
+  border-radius: 999px; border: 2.5px solid var(--ivory); margin-bottom: 0.55rem;
+}
+.preloader-status { color: var(--ivory); font-family: var(--font-tall); font-size: 1.85rem; letter-spacing: 0.05em; margin-bottom: 0.85rem; }
+.preloader-bar-track {
+  width: min(240px, 78vw); height: 12px; background: var(--choco-dark);
+  border: 2.5px solid var(--ivory); border-radius: 999px; overflow: hidden; margin: 0 auto;
+}
+.preloader-bar-fill { height: 100%; width: 15%; background: var(--gold); border-radius: 999px; transition: width 0.4s ease; }

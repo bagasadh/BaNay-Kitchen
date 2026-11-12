@@ -1,0 +1,38 @@
+/* ----------------------------------------------------------------------------
+   9. STORY SECTION (CERITA KAMI)
+   ------------------------------------------------------------------------- */
+.story-bento-grid, .location-ig-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 2.1rem; align-items: stretch; }
+.bento-card { padding: 2.2rem; }
+.bento-main-story { display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; }
+.sibling-badge-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
+.name-pill {
+  background: var(--cream); border: 2.5px solid var(--choco-dark); box-shadow: 0 4px 0 var(--choco-dark);
+  padding: 0.42rem 1rem; border-radius: 999px; font-family: var(--font-cartoon); font-size: 0.84rem; color: var(--choco-deep);
+}
+.name-pill strong { background: var(--gold); padding: 0.08rem 0.38rem; border-radius: 6px; border: 1.5px solid var(--choco-dark); margin-right: 2px; }
+.plus-circle {
+  width: 36px; height: 36px; border-radius: 50%; background: var(--gold); color: var(--choco-deep);
+  border: 2.5px solid var(--choco-dark); font-family: var(--font-cartoon); font-size: 1.1rem;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.story-logo-stage { position: relative; width: 225px; height: 225px; margin: 0.5rem auto 1.6rem; display: flex; align-items: center; justify-content: center; }
+.story-logo-halo {
+  position: absolute; inset: -14px; border-radius: 50%; border: 4px dashed var(--gold);
+  background: radial-gradient(circle, rgba(245, 200, 76, 0.35) 0%, transparent 70%); will-change: transform;
+}
+.story-main-logo { position: relative; width: 205px; height: 205px; border-radius: 50%; border: 5px solid var(--choco-dark); box-shadow: var(--shadow-cartoon); object-fit: cover; }
+.sticker-story { position: absolute; bottom: -8px; right: -12px; --scroll-rot: -8deg; font-size: 0.8rem; }
+.story-card-body h3 { font-family: var(--font-cartoon); font-size: 1.55rem; color: var(--choco-deep); margin-bottom: 0.65rem; }
+.story-card-body p { color: var(--ink-muted); font-size: 1rem; font-weight: 600; }
+
+.bento-side-stack { display: flex; flex-direction: column; gap: 1.35rem; }
+.bento-pillar { display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.65rem 1.8rem; }
+.pillar-gold { background: var(--gold); }
+.pillar-dark { background: var(--choco-deep); color: var(--cream); }
+.pillar-num {
+  font-family: var(--font-cartoon); font-size: 1.45rem; background: var(--ivory); color: var(--choco-deep);
+  border: 3px solid var(--choco-dark); box-shadow: 0 4px 0 var(--choco-dark);
+  min-width: 54px; height: 54px; border-radius: 16px; display: flex; align-items: center; justify-content: center;
+}
+.pillar-text h4 { font-family: var(--font-cartoon); font-size: 1.2rem; margin-bottom: 0.35rem; }
+.pillar-text p { font-size: 0.94rem; font-weight: 600; opacity: 0.92; }

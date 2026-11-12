@@ -1,0 +1,22 @@
+{
+  "name": "banay-kitchen",
+  "version": "1.0.0",
+  "description": "BaNay Kitchen — Homemade Pastry & Dessert Buatan Ibu",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch",
+    "deploy": "node build.js && npx vercel --prod",
+    "start": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "banay-kitchen",
+    "pastry",
+    "dessert",
+    "bakery",
+    "homemade"
+  ],
+  "author": "BaNay Kitchen",
+  "license": "ISC"
+}
+

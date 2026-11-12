@@ -1,0 +1,246 @@
+/* ----------------------------------------------------------------------------
+   15. RESPONSIVE BREAKPOINTS (ALL DEVICES: DESKTOP, TAB, FOLD, IPHONE MINI–PRO MAX)
+   ------------------------------------------------------------------------- */
+
+/* A. Large Desktop & Ultrawide (1600px+) */
+@media (min-width: 1600px) {
+  .section-container, .navbar-pill, .hero-grid { max-width: 1340px; }
+  .gallery-fanned-grid { max-width: 1300px; gap: 1.85rem; }
+}
+
+/* B. Small Laptops & Tablet Landscape (max-width: 1160px) */
+@media (max-width: 1160px) {
+  .nav-center-links { gap: clamp(0.55rem, 1.3vw, 1.15rem); font-size: clamp(1.12rem, 1.45vw, 1.3rem); }
+  .nav-center-links a { padding: 0.2rem 0.5rem; }
+  .navbar-pill .btn-warm { padding: 0.55rem 1rem; font-size: 0.84rem; }
+  .hero-grid { gap: 2.2rem; }
+  .arch-main-card { height: 390px; }
+}
+
+/* C. Tablet Portrait & Foldable Unfolded (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .gallery-fanned-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 680px; gap: 1.35rem; }
+  .pol-1, .pol-2, .pol-3, .pol-4 { --scroll-rot: 0deg; --scroll-y: 0px; }
+  .menu-arch-grid { gap: 1.5rem; }
+  .menu-arch-photo { height: 265px; border-radius: 80px 80px 20px 20px; }
+}
+
+/* D. Tablets, Vertical Monitors & Phones (max-width: 960px) */
+@media (max-width: 960px) {
+  .nav-center-links { display: none; }
+  .hero-grid, .story-bento-grid, .menu-arch-wide, .custom-order-sheet, .location-ig-grid, .footer-main-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hero-section { padding: 1.8rem 1.25rem 3.8rem; }
+  .hero-copy-col { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .hero-lead { margin-left: auto; margin-right: auto; }
+  .hero-cta-group { justify-content: center; }
+  .hero-trust-strip { justify-content: center; }
+  .menu-section-head { flex-direction: column; align-items: flex-start; gap: 0.85rem; }
+  .menu-head-note { max-width: 100%; }
+  .menu-arch-wide .menu-arch-photo { min-height: 260px; border-radius: 24px; }
+}
+
+/* D2. Mobile & Vertical Viewport Hero Showcase Tuning (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero-arch-stage {
+    width: 100%;
+    max-width: 350px;
+    gap: 0.85rem;
+  }
+  .hero-arch-frame {
+    max-width: 330px;
+  }
+  .arch-main-card {
+    width: 100%;
+    height: clamp(320px, 46vh, 370px);
+    border-radius: 165px 165px 26px 26px;
+  }
+  .rotating-seal-badge {
+    width: 82px;
+    height: 82px;
+    top: -10px;
+    right: -4px;
+    padding: 4px;
+  }
+  .cartoon-sticker {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.68rem;
+  }
+  .sticker-top-left {
+    left: -4px;
+    top: 14px;
+  }
+  .sticker-bottom-right {
+    right: -4px;
+    left: auto;
+    bottom: 82px;
+  }
+
+  .hero-orbit-row {
+    max-width: 330px;
+    gap: 0.75rem;
+  }
+  .hero-orbit-row .orbit-card {
+    padding: 0.48rem;
+    border-radius: 18px;
+    --scroll-rot: 0deg;
+    --scroll-y: 0px;
+  }
+  .hero-orbit-row .orbit-card img {
+    height: 96px;
+    border-radius: 12px;
+    margin-bottom: 0.35rem;
+  }
+  .hero-orbit-row .orbit-meta {
+    padding: 0.1rem 0.15rem;
+  }
+  .hero-orbit-row .orbit-meta span {
+    font-size: 0.62rem;
+    line-height: 1.2;
+  }
+  .hero-orbit-row .orbit-meta strong {
+    font-size: 0.8rem;
+    line-height: 1.15;
+  }
+}
+
+/* E. Phablets, iPhone Pro Max / Plus / S Ultra (max-width: 680px) */
+@media (max-width: 680px) {
+  .menu-arch-grid { grid-template-columns: minmax(0, 1fr); gap: 1.65rem; }
+  .story-section, .menu-section, .location-section { padding: 3.4rem 0 3.8rem; }
+  .story-header, .location-header, .menu-section-head, .lookbook-header { margin-bottom: 2.1rem; }
+  .bento-card, .custom-order-sheet, .home-location-card, .ig-atelier-card { padding: 1.5rem; border-radius: 26px; }
+  .menu-arch-card { border-radius: 28px; padding: 1rem; }
+  .menu-arch-photo { height: 250px; border-radius: 75px 75px 20px 20px; }
+  .hero-editorial-title { font-size: clamp(2.15rem, 8.4vw, 3.1rem); -webkit-text-stroke: 1.5px var(--ivory); }
+  .hero-editorial-title em { -webkit-text-stroke: 2px var(--choco-dark); }
+  .section-serif-title { font-size: clamp(1.85rem, 7.2vw, 2.65rem); }
+
+  /* Compact Circular Floating WhatsApp Button (Mobile FAB) */
+  .floating-wa-widget {
+    position: fixed;
+    bottom: max(16px, calc(env(safe-area-inset-bottom, 0px) + 12px));
+    right: max(16px, calc(env(safe-area-inset-right, 0px) + 12px));
+    z-index: 95;
+    display: block !important;
+  }
+  .floating-wa-btn {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(34, 16, 8, 0.35), 0 4px 0 var(--choco-dark);
+    position: relative;
+  }
+  .floating-wa-btn svg {
+    width: 26px;
+    height: 26px;
+  }
+  .floating-wa-text {
+    display: none;
+  }
+  .floating-wa-btn .cart-badge-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 22px;
+    height: 22px;
+    font-size: 0.74rem;
+  }
+}
+
+/* F. Standard & Compact Phones: iPhone 12/13/14/15, Mini, SE (max-width: 480px) */
+@media (max-width: 480px) {
+  .navbar-wrap { top: 8px; padding: 0 0.65rem; }
+  .navbar-pill { padding: 0.42rem 0.55rem 0.42rem 0.7rem; }
+  .brand-logo { gap: 0.5rem; }
+  .brand-logo-img, .drawer-brand img { width: 38px; height: 38px; }
+  .brand-logo-name { font-size: 1.05rem; }
+  .brand-logo-sub, .nav-actions .btn-gold { display: none; }
+  .btn-icon-menu { padding: 0.5rem 0.85rem; font-size: 0.82rem; gap: 0.4rem; }
+
+  .eyebrow-pill, .section-kicker { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
+  .hero-lead { font-size: 0.96rem; margin-bottom: 1.4rem; }
+  .hero-cta-group { width: 100%; flex-direction: column; gap: 0.7rem; margin-bottom: 1.65rem; }
+  .hero-cta-group .btn-warm { width: 100%; font-size: 0.92rem; padding: 0.78rem 1.1rem; }
+
+  .hero-trust-strip {
+    width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem; padding: 0.75rem 0.6rem; border-radius: 18px; text-align: center;
+  }
+  .trust-divider { display: none; }
+  .trust-item strong { font-size: 0.78rem; }
+  .trust-item span { font-size: 0.68rem; line-height: 1.25; }
+
+  .hero-arch-frame, .hero-orbit-row { max-width: min(310px, 88vw); }
+  .arch-main-card { height: 340px; border-radius: 150px 150px 24px 24px; }
+  .arch-card-Tag, .arch-card-tag { bottom: 12px; left: 12px; right: 12px; padding: 0.5rem 0.75rem; }
+  .arch-card-Tag strong, .arch-card-tag strong { font-size: 0.98rem; }
+  .sticker-bottom-right { bottom: 76px; }
+
+  .ribbon-track { font-size: 0.92rem; gap: 1.5rem; }
+  .story-logo-stage { width: min(195px, 64vw); height: min(195px, 64vw); }
+  .story-main-logo { width: 90%; height: 90%; }
+  .bento-pillar { padding: 1.2rem; gap: 0.9rem; }
+  .pillar-num { min-width: 44px; height: 44px; font-size: 1.2rem; border-radius: 12px; }
+  .pillar-text h4 { font-size: 1.05rem; }
+
+  .gallery-fanned-grid, .form-row-split, .loc-contact-chips { grid-template-columns: minmax(0, 1fr); }
+  .pol-img-box { height: 220px; }
+  .loc-action-row { flex-direction: column; }
+  .loc-action-row .btn-warm { width: 100%; }
+  .custom-order-sheet .btn-lg { font-size: 0.86rem; padding: 0.8rem 1rem; }
+
+  .side-drawer { width: min(380px, 94vw); padding: 1.15rem 1.1rem max(1.15rem, calc(env(safe-area-inset-bottom, 0px) + 0.85rem)); }
+  .drawer-link { font-size: 1rem; padding: 0.38rem 0.5rem; }
+}
+
+/* G. Ultra-Narrow / Galaxy Z Fold Cover Screen & Smallest Devices (max-width: 359px) */
+@media (max-width: 359px) {
+  .section-container { padding: 0 0.7rem; }
+  .brand-logo-name { font-size: 0.92rem; }
+  .brand-logo-img { width: 32px; height: 32px; }
+  .btn-icon-menu { padding: 0.4rem 0.65rem; font-size: 0.74rem; }
+  .nav-cart-count { width: 20px; height: 20px; font-size: 0.7rem; }
+
+  .hero-editorial-title { font-size: clamp(1.65rem, 8.2vw, 2rem); }
+  .hero-trust-strip { grid-template-columns: minmax(0, 1fr); gap: 0.45rem; }
+  .hero-arch-frame, .hero-orbit-row { max-width: 100%; }
+  .arch-main-card { width: 100%; height: 300px; border-radius: 130px 130px 22px 22px; }
+  .hero-orbit-row { width: 100%; gap: 0.5rem; }
+  .hero-orbit-row .orbit-card img { height: 76px; }
+  .hero-orbit-row .orbit-meta strong { font-size: 0.72rem; }
+  .rotating-seal-badge { width: 68px; height: 68px; }
+
+  .menu-arch-photo { height: 210px; border-radius: 60px 60px 18px 18px; }
+  .arch-badge { font-size: 0.68rem; padding: 0.25rem 0.65rem; top: 10px; max-width: calc(100% - 20px); }
+  .arch-price-pill { font-size: 0.95rem; padding: 0.3rem 0.8rem; right: 10px; bottom: 10px; }
+  .menu-card-actions { flex-direction: column; align-items: stretch; }
+  .qty-stepper { width: 100%; justify-content: space-between; }
+  .menu-card-actions .add-cart-btn { width: 100%; }
+  .direct-wa-btn { font-size: 0.78rem; padding: 0.6rem 0.75rem; }
+
+  .bento-pillar { flex-direction: column; gap: 0.65rem; }
+  .ig-gallery-grid { grid-template-columns: minmax(0, 1fr); }
+  .footer-giant-word { font-size: clamp(1.4rem, 7.2vw, 2.2rem); -webkit-text-stroke: 1.5px var(--ivory); }
+}
+
+/* H. Short Viewport Landscape Mode (Phones Rotated Horizontally) */
+@media (max-height: 540px) and (orientation: landscape) {
+  .preloader-card { gap: 0.65rem; }
+  .preloader-seal-wrap { width: 115px; height: 115px; }
+  .preloader-logo { width: 76px; height: 76px; }
+  .preloader-status { font-size: 1.3rem; margin-bottom: 0.4rem; }
+  .navbar-wrap { top: 6px; }
+  .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 1.5rem; align-items: start; }
+  .hero-copy-col { text-align: left; align-items: flex-start; }
+  .hero-cta-group, .hero-trust-strip { justify-content: flex-start; }
+  .arch-main-card { height: 280px; border-radius: 130px 130px 22px 22px; }
+  .menu-arch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .side-drawer { padding: 0.9rem 1.1rem; }
+  .drawer-header { padding-bottom: 0.6rem; }
+  .drawer-body { gap: 0.8rem; padding-top: 0.6rem; }
+  .drawer-cart-items { max-height: 110px; }
+}

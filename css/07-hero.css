@@ -1,0 +1,94 @@
+/* ----------------------------------------------------------------------------
+   7. HERO SECTION & ARCH STAGE
+   ------------------------------------------------------------------------- */
+.hero-section { position: relative; padding: 2.5rem 1.5rem 5.5rem; overflow: hidden; }
+.hero-giant-backdrop {
+  position: absolute; top: 28px; left: 0; right: 0; display: flex; justify-content: space-between;
+  padding: 0 2vw; font-family: var(--font-cartoon); font-size: clamp(4.5rem, 15vw, 14rem);
+  line-height: 0.85; color: rgba(58, 31, 19, 0.055); -webkit-text-stroke: 2px rgba(58, 31, 19, 0.08);
+  pointer-events: none; user-select: none; z-index: 0;
+}
+.hero-grid {
+  max-width: 1240px; margin: 0 auto; position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1.06fr 0.94fr; gap: 3.5rem; align-items: center;
+}
+.hero-editorial-title {
+  font-family: var(--font-cartoon); font-size: clamp(2.8rem, 5.8vw, 4.9rem);
+  line-height: 0.98; letter-spacing: 0.01em; color: var(--choco-deep);
+  -webkit-text-stroke: 2px var(--ivory);
+  text-shadow: 3px 3px 0 var(--ivory), 0 7px 0 rgba(34, 16, 8, 0.16);
+  margin-bottom: 1.35rem;
+}
+.hero-editorial-title em {
+  font-style: normal; color: var(--gold); -webkit-text-stroke: 2.5px var(--choco-dark);
+  text-shadow: 0 6px 0 var(--choco-dark); display: inline-block; transform: rotate(-1.5deg);
+}
+.hero-lead { font-size: 1.08rem; font-weight: 600; color: var(--ink-muted); max-width: 550px; margin-bottom: 1.85rem; }
+.hero-lead strong { color: var(--choco-deep); font-weight: 700; }
+.hero-cta-group { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 2.2rem; }
+
+.hero-trust-strip {
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 1.25rem;
+  background: var(--ivory); border: 3px solid var(--choco-dark);
+  box-shadow: var(--shadow-cartoon-sm); padding: 0.9rem 1.4rem; border-radius: 22px;
+}
+.trust-item { display: flex; flex-direction: column; }
+.trust-item strong { font-family: var(--font-cartoon); font-size: 0.96rem; color: var(--choco-deep); }
+.trust-item span { font-size: 0.8rem; font-weight: 600; color: var(--ink-muted); }
+.trust-divider { width: 2px; height: 32px; background: var(--border-warm); }
+
+.hero-visual-col { position: relative; display: flex; justify-content: center; width: 100%; }
+.hero-arch-stage {
+  position: relative; width: min(410px, 100%); margin: 0 auto; padding: 0.5rem 0;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
+.hero-arch-frame {
+  position: relative; width: 100%; max-width: 375px; margin: 0 auto;
+}
+.sticker-top-left { position: absolute; top: 18px; left: -10px; --scroll-rot: -7deg; z-index: 8; }
+.sticker-bottom-right {
+  position: absolute; bottom: 88px; right: -10px; left: auto;
+  background: var(--choco-deep); color: var(--gold); --scroll-rot: 5deg; z-index: 8;
+}
+
+.arch-main-card {
+  position: relative; width: 100%; height: 410px; margin: 0 auto;
+  border-radius: 190px 190px 30px 30px; overflow: hidden;
+  border: 4.5px solid var(--choco-dark); background: var(--ivory); box-shadow: 0 10px 0 var(--choco-dark);
+}
+.arch-main-card img, .menu-arch-photo img, .pol-img-box img, .ig-thumb img {
+  width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+}
+.arch-main-card:hover img, .menu-arch-card:hover .menu-arch-photo img, .gallery-polaroid:hover .pol-img-box img, .ig-thumb:hover img {
+  transform: scale(1.06);
+}
+.arch-card-Tag, .arch-card-tag {
+  position: absolute; bottom: 14px; left: 14px; right: 14px;
+  background: var(--ivory); border: 3px solid var(--choco-dark); box-shadow: 0 5px 0 var(--choco-dark);
+  border-radius: 18px; padding: 0.6rem 0.95rem; display: flex; flex-direction: column; z-index: 4;
+}
+.arch-card-Tag span, .arch-card-tag span { font-family: var(--font-cartoon); font-size: 0.75rem; color: var(--mocha); }
+.arch-card-Tag strong, .arch-card-tag strong { font-family: var(--font-cartoon); font-size: 1.1rem; color: var(--choco-deep); }
+
+.rotating-seal-badge {
+  position: absolute; top: -12px; right: -6px; width: 98px; height: 98px; border-radius: 50%; padding: 5px;
+  background: var(--gold); border: 3.5px solid var(--choco-dark); box-shadow: 0 6px 0 var(--choco-dark);
+  z-index: 7; will-change: transform;
+}
+.rotating-seal-badge img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+.hero-orbit-row {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem;
+  width: 100%; max-width: 375px; margin: 0 auto; position: relative; z-index: 5;
+}
+
+.orbit-card {
+  position: relative; width: 100%; background: var(--ivory); border: 3.5px solid var(--choco-dark);
+  border-radius: 22px; padding: 0.55rem; box-shadow: var(--shadow-cartoon); z-index: 5; will-change: transform;
+}
+.orbit-card img { width: 100%; height: 112px; object-fit: cover; border-radius: 14px; border: 2px solid var(--choco-dark); margin-bottom: 0.45rem; }
+.orbit-meta { padding: 0 0.3rem 0.15rem; display: flex; flex-direction: column; }
+.orbit-meta span { font-family: var(--font-cartoon); font-size: 0.68rem; color: var(--mocha); }
+.orbit-meta strong { font-family: var(--font-cartoon); font-size: 0.88rem; color: var(--choco-deep); line-height: 1.15; }
+.orbit-strudel { --scroll-rot: -1.5deg; }
+.orbit-qqball { --scroll-rot: 1.5deg; }

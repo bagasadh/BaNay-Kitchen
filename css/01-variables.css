@@ -1,0 +1,24 @@
+/* ----------------------------------------------------------------------------
+   1. DESIGN SYSTEM & CSS VARIABLES
+   ------------------------------------------------------------------------- */
+:root {
+  --cream: #F7E8D3;
+  --cream-soft: #FBF2E3;
+  --ivory: #FFFDF8;
+  --choco-deep: #3A1F13;
+  --choco-dark: #221008;
+  --mocha: #5E331E;
+  --caramel: #C87D32;
+  --gold: #F5C84C;
+  --gold-soft: #FDE596;
+  --ink: #26130B;
+  --ink-muted: #68493A;
+  --border-warm: rgba(38, 19, 11, 0.18);
+
+  --font-cartoon: 'Titan One', cursive, sans-serif;
+  --font-tall: 'Mouse Memoirs', sans-serif;
+  --font-body: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --shadow-cartoon: 0 8px 0 var(--choco-dark);
+  --shadow-cartoon-sm: 0 5px 0 var(--choco-dark);
+}

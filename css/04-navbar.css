@@ -1,0 +1,53 @@
+/* ----------------------------------------------------------------------------
+   4. FLOATING NAVBAR & CARTOON BUTTONS
+   ------------------------------------------------------------------------- */
+.navbar-wrap { position: sticky; top: 14px; z-index: 120; padding: 0 1.25rem; }
+.navbar-pill {
+  max-width: 1240px; margin: 0 auto; background: var(--ivory);
+  border: 3.5px solid var(--choco-dark); border-radius: 999px;
+  padding: 0.55rem 0.85rem 0.55rem 1rem;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: var(--shadow-cartoon-sm);
+}
+
+.brand-logo, .drawer-brand { display: flex; align-items: center; gap: 0.75rem; }
+.brand-logo-img, .drawer-brand img { width: 46px; height: 46px; border-radius: 50%; border: 2.5px solid var(--choco-dark); object-fit: cover; }
+.brand-logo-meta { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-logo-name { font-family: var(--font-cartoon); font-size: 1.25rem; color: var(--choco-deep); letter-spacing: 0.02em; }
+.brand-logo-sub, .drawer-brand small { font-size: 0.74rem; font-weight: 700; color: var(--ink-muted); }
+
+.nav-center-links {
+  display: flex; align-items: center; gap: 1.4rem;
+  font-family: var(--font-tall); font-size: 1.35rem; letter-spacing: 0.05em; color: var(--choco-deep);
+}
+.nav-center-links a { padding: 0.25rem 0.65rem; border-radius: 999px; transition: background-color 0.2s ease, transform 0.2s ease; }
+.nav-center-links a:hover { background-color: var(--gold); transform: translateY(-2px) rotate(-2deg); }
+.nav-actions { display: flex; align-items: center; gap: 0.55rem; }
+
+.btn-warm {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+  font-family: var(--font-cartoon); font-size: 0.92rem; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0.65rem 1.3rem; border-radius: 999px; border: 3px solid var(--choco-dark);
+  box-shadow: var(--shadow-cartoon-sm); cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, color 0.2s ease;
+}
+.btn-warm:hover { --hover-lift: -3px; --hover-scale: 1.03; }
+.btn-primary { background-color: var(--choco-deep); color: var(--ivory); }
+.btn-primary:hover { background-color: var(--mocha); color: var(--gold); }
+.btn-gold { background-color: var(--gold); color: var(--choco-deep); }
+.btn-gold:hover { background-color: var(--gold-soft); }
+.btn-outline, .btn-ghost { background-color: var(--ivory); color: var(--choco-deep); }
+.btn-outline:hover, .btn-ghost:hover { background-color: var(--gold); }
+.btn-icon-menu { background-color: var(--cream); color: var(--choco-deep); }
+.btn-wa { background-color: var(--choco-deep); color: var(--gold); }
+.btn-wa:hover { background-color: var(--mocha); color: var(--ivory); }
+.btn-ig { background-color: var(--gold); color: var(--choco-deep); }
+.btn-ig:hover { background-color: var(--choco-deep); color: var(--gold); }
+.btn-lg { font-size: 1.02rem; padding: 0.85rem 1.65rem; }
+
+.nav-cart-count, .cart-badge-count {
+  font-family: var(--font-cartoon); font-size: 0.8rem; width: 24px; height: 24px;
+  border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+}
+.nav-cart-count { background: var(--choco-deep); color: var(--gold); }
+.cart-badge-count { background: var(--gold); color: var(--choco-deep); border: 2px solid var(--choco-dark); }
