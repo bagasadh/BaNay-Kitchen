@@ -1,8 +1,6 @@
-# BaNay Kitchen 🥐
+# BaNay Kitchen 
 
 Website katalog dan pemesanan WhatsApp untuk **BaNay Kitchen** (Homemade Pastry & Dessert Buatan Ibu).
-
-🌐 **Demo:** [banay-kitchen.vercel.app](https://banay-kitchen.vercel.app)
 
 ---
 
@@ -60,10 +58,3 @@ npm run watch
 ├── script.js       # Hasil compile JS
 └── build.js        # Script build sederhana
 ```
-
----
-
-## Kontak & Pemesanan
-- **WhatsApp:** 0812-4449-609
-- **Instagram:** [@banay_kitchen](https://www.instagram.com/banay_kitchen)
-- **Lokasi:** Perum Citra Swarna Riverside, Karawang
