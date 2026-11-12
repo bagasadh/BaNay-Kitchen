@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
- * 1. STORE CONFIGURATION & STATE
- * ------------------------------------------------------------------------- */
+// Konfigurasi toko & state keranjang
 const STORE_CONFIG = {
   storeName: 'BaNay Kitchen',
   whatsappNumber: '628124449609',
@@ -16,7 +14,6 @@ const STORE_CONFIG = {
   }
 };
 
-// Initial cart state (empty by default)
 const cartState = {
   strudel: 0,
   crispy: 0,

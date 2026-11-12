@@ -1,34 +1,35 @@
-/* ----------------------------------------------------------------------------
- * 9. CART RENDERING & WHATSAPP ORDER MANAGEMENT
- * ------------------------------------------------------------------------- */
+// Logika keranjang & WhatsApp order
 function renderDrawerCart() {
   const container = document.getElementById('drawer-cart-items');
-  const totalEl = document.getElementById('drawer-cart-total');
-  const badgeCountEl = document.getElementById('floating-cart-count');
-  const navCountEl = document.getElementById('nav-cart-count');
-  if (!container || !totalEl) return;
+  const countBadgeNav = document.getElementById('cart-count-badge');
+  const countBadgeDrawer = document.getElementById('drawer-cart-badge');
+  const totalDisplay = document.getElementById('drawer-total-price');
+  if (!container) return;
 
   const { items, grandTotal, totalItems, hasCustomItem } = Utils.getCartBreakdown();
 
   if (items.length === 0) {
-    container.innerHTML = `<p class="drawer-empty-note">Keranjang masih kosong. Yuk pilih camilan dari dapur kami!</p>`;
+    container.innerHTML = `
+      <div class="empty-cart-state">
+        <span class="empty-cart-icon">🛒</span>
+        <p>Keranjangmu masih kosong nih.</p>
+        <a href="#menu" class="btn-warm btn-gold empty-browse-btn drawer-link">Pilih Menu Pastry</a>
+      </div>
+    `;
   } else {
     container.innerHTML = items
       .map(({ key, prod, qty, subtotal }) => {
-        const priceLabel = prod.isCustomPrice
-          ? `${qty}x (Sesuai Request)`
-          : `${qty} × ${Utils.formatRupiah(prod.price)} = ${Utils.formatRupiah(subtotal)}`;
-
+        const subtotalText = prod.isCustomPrice ? 'Harga sesuai request' : Utils.formatRupiah(subtotal);
         return `
-          <div class="drawer-item-row">
-            <div>
-              <div>${prod.name}</div>
-              <small class="drawer-item-sub">${priceLabel}</small>
+          <div class="drawer-cart-row">
+            <div class="cart-row-info">
+              <h4>${prod.name}</h4>
+              <span class="cart-row-price">${subtotalText}</span>
             </div>
-            <div class="drawer-item-controls">
-              <button type="button" class="cart-step-btn" data-cart-dec="${key}">−</button>
+            <div class="cart-row-controls">
+              <button type="button" class="cart-step-btn" data-cart-dec="${key}" aria-label="Kurangi ${prod.name}">−</button>
               <span class="cart-step-qty">${qty}</span>
-              <button type="button" class="cart-step-btn is-inc" data-cart-inc="${key}">+</button>
+              <button type="button" class="cart-step-btn" data-cart-inc="${key}" aria-label="Tambah ${prod.name}">+</button>
             </div>
           </div>
         `;
@@ -36,42 +37,47 @@ function renderDrawerCart() {
       .join('');
   }
 
-  // Update Total Label
-  if (grandTotal > 0 && hasCustomItem) {
-    totalEl.textContent = `${Utils.formatRupiah(grandTotal)} + Request`;
-  } else if (grandTotal > 0) {
-    totalEl.textContent = Utils.formatRupiah(grandTotal);
-  } else if (hasCustomItem) {
-    totalEl.textContent = 'Sesuai Request';
-  } else {
-    totalEl.textContent = 'Rp 0';
+  if (totalDisplay) {
+    if (grandTotal === 0 && !hasCustomItem) {
+      totalDisplay.textContent = 'Rp 0';
+    } else if (hasCustomItem && grandTotal === 0) {
+      totalDisplay.textContent = 'Custom Order';
+    } else if (hasCustomItem) {
+      totalDisplay.textContent = `${Utils.formatRupiah(grandTotal)} + Custom`;
+    } else {
+      totalDisplay.textContent = Utils.formatRupiah(grandTotal);
+    }
   }
 
-  // Update Badge Counts
-  const countStr = String(totalItems);
-  if (badgeCountEl) badgeCountEl.textContent = countStr;
-  if (navCountEl) navCountEl.textContent = countStr;
+  if (countBadgeNav) {
+    countBadgeNav.textContent = String(totalItems);
+    countBadgeNav.classList.toggle('has-items', totalItems > 0);
+  }
+  if (countBadgeDrawer) {
+    countBadgeDrawer.textContent = String(totalItems);
+  }
 }
 
 function applyStoreConfigToDOM() {
-  const mapsLink = document.getElementById('maps-direct-link');
-  if (mapsLink) {
-    mapsLink.href = STORE_CONFIG.googleMapsUrl;
-  }
-
-  Object.keys(STORE_CONFIG.products).forEach((key) => {
-    const prod = STORE_CONFIG.products[key];
-    const priceEl = document.getElementById(`price-${key}-display`);
-    if (priceEl) {
-      priceEl.textContent = prod.isCustomPrice ? 'SESUAI REQUEST' : Utils.formatRupiah(prod.price);
+  document.querySelectorAll('[data-product-price]').forEach((el) => {
+    const id = el.getAttribute('data-product-price');
+    const prod = STORE_CONFIG.products[id];
+    if (prod && !prod.isCustomPrice) {
+      el.textContent = Utils.formatRupiah(prod.price);
     }
   });
 
-  renderDrawerCart();
+  const waLink = document.getElementById('footer-wa-link');
+  if (waLink) {
+    waLink.href = Utils.buildWhatsAppUrl('Halo BaNay Kitchen! Mau tanya seputar pesanan.');
+    waLink.textContent = STORE_CONFIG.whatsappDisplay;
+  }
 }
 
 function initCartAndWhatsApp() {
-  // Stepper increment/decrement on catalog cards
+  renderDrawerCart();
+
+  // Tombol tambah/kurang qty di katalog
   document.querySelectorAll('.qty-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-id');
@@ -85,7 +91,7 @@ function initCartAndWhatsApp() {
     });
   });
 
-  // Add to cart button handler
+  // Tombol masuk keranjang
   document.querySelectorAll('.add-cart-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-id');
@@ -103,7 +109,7 @@ function initCartAndWhatsApp() {
     });
   });
 
-  // Event delegation for cart item increment/decrement inside drawer
+  // Event handler qty di dalam drawer
   const cartContainer = document.getElementById('drawer-cart-items');
   cartContainer?.addEventListener('click', (e) => {
     const decBtn = e.target.closest('[data-cart-dec]');
@@ -124,7 +130,7 @@ function initCartAndWhatsApp() {
     }
   });
 
-  // Direct WhatsApp order for single card
+  // Order langsung via WA per kartu produk
   document.querySelectorAll('.direct-wa-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-id');
@@ -153,11 +159,10 @@ function initCartAndWhatsApp() {
     });
   });
 
-  // Drawer WhatsApp checkout
+  // Checkout keranjang via WhatsApp
   document.getElementById('drawer-checkout-wa')?.addEventListener('click', () => {
     const { items, grandTotal, hasCustomItem } = Utils.getCartBreakdown();
 
-    // If cart is empty (0 items), open WhatsApp directly with NO template message
     if (items.length === 0) {
       Utils.openWhatsApp('');
       return;
@@ -188,7 +193,7 @@ function initCartAndWhatsApp() {
     Utils.openWhatsApp(lines.join('\n'));
   });
 
-  // Ask location via WhatsApp
+  // Tanya patokan via WhatsApp
   document.getElementById('ask-location-wa')?.addEventListener('click', () => {
     const msg = `Halo Kak Bagas & Naylah (*${STORE_CONFIG.storeName}*)! 👋 Saya mau tanya patokan rumah untuk Pick Up pesanan sesuai titik Google Maps (${STORE_CONFIG.googleMapsUrl}). Terima kasih!`;
     Utils.openWhatsApp(msg);

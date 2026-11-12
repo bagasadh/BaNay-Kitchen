@@ -1,13 +1,10 @@
-/* ----------------------------------------------------------------------------
- * 5. 60FPS BIDIRECTIONAL SCROLL-SCRUBBING ENGINE (COMPOSABLE CSS VARIABLES)
- * ------------------------------------------------------------------------- */
+// Scroll animations & marquee
 function initScrollScrubbingEngine() {
   const progressBar = document.getElementById('scroll-progress-bar');
   const animTargets = Array.from(
     document.querySelectorAll('[data-anim], [data-anim-lines="true"], [data-anim-chars="true"]')
   );
 
-  // Cached scrub element references
   const heroArchStage = document.getElementById('hero-arch-stage');
   const heroWordLeft = document.getElementById('hero-word-left');
   const heroWordRight = document.getElementById('hero-word-right');
@@ -28,7 +25,6 @@ function initScrollScrubbingEngine() {
   let targetScroll = window.scrollY;
   let isTicking = false;
 
-  // Cached unit set widths for seamless infinite marquee scrubbing
   let ribbon1SetWidth = 0;
   let ribbon2SetWidth = 0;
   let filmstripSetWidth = 0;
@@ -92,7 +88,7 @@ function initScrollScrubbingEngine() {
       progressBar.style.width = `${pct.toFixed(2)}%`;
     }
 
-    // A. Smooth In-View Reveal (Never hides elements at the top while still on screen)
+    // Reveal animasi saat elemen masuk viewport
     const enterBottom = vh * 0.94;
     const resetBottom = vh * 0.98;
     for (let i = 0; i < animTargets.length; i++) {
@@ -107,9 +103,9 @@ function initScrollScrubbingEngine() {
       }
     }
 
-    // B. Bounded Hero Elements Scrub (Orientation-Safe for Vertical & Horizontal Screens)
+    // Hero section scroll effects
     const heroProg = getSectionProgress(heroArchStage);
-    const heroCentered = (heroProg - 0.5) * 2; // -1 to +1
+    const heroCentered = (heroProg - 0.5) * 2;
 
     if (heroWordLeft) {
       const shiftX = Utils.clamp(-scrollVal * 0.12, -90, 0);
@@ -122,7 +118,6 @@ function initScrollScrubbingEngine() {
       heroWordRight.style.transform = `translate3d(${shiftX.toFixed(1)}px, ${shiftY.toFixed(1)}px, 0)`;
     }
     if (heroSeal) {
-      // Gentle upright wobble (-10deg to +10deg) so mascot is never upside-down
       heroSeal.style.setProperty('--scroll-rot', `${(heroCentered * 10).toFixed(1)}deg`);
     }
     if (heroSticker1) {
@@ -154,10 +149,9 @@ function initScrollScrubbingEngine() {
       }
     }
 
-    // Euclidean modulo: always positive, preventing glitches on rubber-banding / bounce
     const mod = (n, m) => ((n % m) + m) % m;
 
-    // C. Pastry Ribbon Marquee Scrub
+    // Ribbon marquee scroll
     const r1W = ribbon1SetWidth || (ribbonTrack1 ? ribbonTrack1.scrollWidth / 6 : 0);
     if (ribbonTrack1 && r1W > 0) {
       const shift1 = -mod(scrollVal * 0.38, r1W);
@@ -165,19 +159,18 @@ function initScrollScrubbingEngine() {
     }
     const r2W = ribbon2SetWidth || (ribbonTrack2 ? ribbonTrack2.scrollWidth / 6 : 0);
     if (ribbonTrack2 && r2W > 0) {
-      // Scrub in opposite direction while keeping both left & right edges seamlessly covered
       const shift2 = -r2W + mod(scrollVal * 0.38, r2W);
       ribbonTrack2.style.transform = `translate3d(${shift2.toFixed(1)}px, 0, 0)`;
     }
 
-    // D. Story Logo Halo Scrub
+    // Story logo rotation
     if (storySection && storyHalo) {
       const p = getSectionProgress(storySection);
       const scale = 0.92 + Math.sin(p * Math.PI) * 0.16;
       storyHalo.style.transform = `rotate(${(p * 240).toFixed(1)}deg) scale(${scale.toFixed(3)})`;
     }
 
-    // E. Gallery Polaroid Fan (Composable CSS Variables) & Filmstrip Loop
+    // Gallery polaroid fan & filmstrip
     if (galleryGrid) {
       if (window.innerWidth > 1024) {
         const p = getSectionProgress(galleryGrid);
@@ -231,14 +224,7 @@ function initScrollScrubbingEngine() {
   window.addEventListener('resize', () => {
     setupMarqueeTracks();
     requestTick();
-  }, { passive: true });
-  window.addEventListener('orientationchange', () => {
-    setupMarqueeTracks();
-    requestTick();
-  }, { passive: true });
-  window.addEventListener('load', () => {
-    setupMarqueeTracks();
-    requestTick();
-  }, { passive: true });
+  });
+
   requestTick();
 }

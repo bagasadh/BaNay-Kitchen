@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   3. SCROLL PROGRESS BAR & PRELOADER
-   ------------------------------------------------------------------------- */
+/* Preloader */
 .scroll-progress-bar {
   position: fixed; top: 0; left: 0; height: 6px; width: 0%;
   background: linear-gradient(90deg, var(--gold), var(--caramel), var(--choco-deep));

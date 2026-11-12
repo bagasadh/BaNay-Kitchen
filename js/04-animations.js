@@ -1,8 +1,5 @@
-/* ----------------------------------------------------------------------------
- * 4. CHOREOGRAPHED ENTRANCES & TEXT SPLITTING
- * ------------------------------------------------------------------------- */
+// Animasi teks & split typography
 function initChoreographedAnimations() {
-  // Split Headlines into masked bouncy lines
   document.querySelectorAll('.hero-editorial-title, .section-serif-title').forEach((heading) => {
     const rawHtml = heading.innerHTML.trim();
     const lines = rawHtml.split(/<br\s*\/?>/i);
@@ -15,32 +12,22 @@ function initChoreographedAnimations() {
     heading.setAttribute('data-anim-lines', 'true');
   });
 
-  // Split Footer Signature Wordmark into bouncy interactive characters
-  const footerWord = document.querySelector('.footer-giant-word');
+  const footerWord = document.getElementById('footer-brand-word');
   if (footerWord) {
-    const text = footerWord.textContent.trim();
-    footerWord.innerHTML = text
-      .split('')
-      .map((ch, idx) =>
-        ch === ' '
-          ? '&nbsp;'
-          : `<span class="bouncy-char" style="--char-delay:${idx * 55}ms">${ch}</span>`
-      )
+    const chars = footerWord.textContent.trim().split('');
+    footerWord.innerHTML = chars
+      .map((c, i) => {
+        if (c === ' ') return ' ';
+        return `<span class="bouncy-char" style="--char-delay:${i * 45}ms">${c}</span>`;
+      })
       .join('');
-    footerWord.setAttribute('data-anim-chars', 'true');
   }
 
-  // Staggered delays setup
-  const setStagger = (selector, delayFn, animAttr = null) => {
-    document.querySelectorAll(selector).forEach((el, idx) => {
-      if (animAttr) el.setAttribute('data-anim', animAttr);
-      el.style.setProperty('--anim-delay', `${delayFn(idx)}ms`);
-    });
-  };
+  document.querySelectorAll('.bento-pillar').forEach((pillar, i) => {
+    pillar.style.setProperty('--anim-delay', `${i * 120}ms`);
+  });
 
-  setStagger('.bento-pillar', (i) => i * 115);
-  setStagger('.menu-arch-card', (i) => (i % 2) * 115);
-  setStagger('.gallery-polaroid', (i) => i * 95);
-  setStagger('.ig-thumb', (i) => i * 85, 'pop-scale');
-  setStagger('.footer-nav-col a', (i) => i * 50, 'fade-up');
+  document.querySelectorAll('.menu-arch-card').forEach((card, i) => {
+    card.style.setProperty('--anim-delay', `${(i % 2) * 140}ms`);
+  });
 }

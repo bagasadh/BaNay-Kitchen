@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   6. STICKERS, KICKERS & EDITORIAL HEADINGS
-   ------------------------------------------------------------------------- */
+/* Badges & Stickers */
 .cartoon-sticker {
   display: inline-block; font-family: var(--font-cartoon); font-size: 0.92rem; letter-spacing: 0.04em;
   background: var(--gold); color: var(--choco-deep); padding: 0.42rem 0.95rem;

@@ -1,10 +1,4 @@
-/**
- * ============================================================================
- * BANAY KITCHEN — Zero-Dependency Modular Build Script
- * Builds index.html, styles.css, and script.js from sections/, css/, and js/
- * Outputs to both root (for local viewing) and public/ (for Vercel deployment)
- * ============================================================================
- */
+// Build script untuk menggabungkan modul HTML, CSS, dan JS ke index.html, styles.css, dan script.js
 
 const fs = require('fs');
 const path = require('path');
@@ -16,12 +10,12 @@ const CSS_DIR = path.join(ROOT_DIR, 'css');
 const JS_DIR = path.join(ROOT_DIR, 'js');
 const ASSETS_DIR = path.join(ROOT_DIR, 'assets');
 
-// Root outputs (for local development & double-clicking index.html)
+// Root outputs
 const OUT_HTML = path.join(ROOT_DIR, 'index.html');
 const OUT_CSS = path.join(ROOT_DIR, 'styles.css');
 const OUT_JS = path.join(ROOT_DIR, 'script.js');
 
-// Public outputs (for Vercel static deployment)
+// Public outputs
 const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 const PUB_HTML = path.join(PUBLIC_DIR, 'index.html');
 const PUB_CSS = path.join(PUBLIC_DIR, 'styles.css');
@@ -36,7 +30,7 @@ function ensurePublicDir() {
 
 function buildHtml() {
   if (!fs.existsSync(TEMPLATE_PATH)) {
-    console.error('❌ Template not found:', TEMPLATE_PATH);
+    console.error('Template not found:', TEMPLATE_PATH);
     return;
   }
 
@@ -48,7 +42,7 @@ function buildHtml() {
     if (fs.existsSync(fullPath)) {
       return fs.readFileSync(fullPath, 'utf8').trim();
     } else {
-      console.warn(`⚠️ Include file not found: ${relPath}`);
+      console.warn(`Include file not found: ${relPath}`);
       return match;
     }
   });
@@ -61,11 +55,7 @@ function buildCss() {
   if (!fs.existsSync(CSS_DIR)) return;
   const files = fs.readdirSync(CSS_DIR).filter((f) => f.endsWith('.css')).sort();
 
-  const header = `/* ==========================================================================
-   BANAY KITCHEN — Official Stylesheet (Clean, Modular & High-Performance)
-   Palette: Deep Chocolate (#3A1F13 / #221008), Mocha (#5E331E), Gold (#F5C84C), Cream (#F7E8D3)
-   Compiled automatically from css/*.css
-   ========================================================================== */\n\n`;
+  const header = `/* BaNay Kitchen - styles.css */\n\n`;
 
   const contents = files.map((f) => {
     return fs.readFileSync(path.join(CSS_DIR, f), 'utf8').trim();
@@ -80,13 +70,7 @@ function buildJs() {
   if (!fs.existsSync(JS_DIR)) return;
   const files = fs.readdirSync(JS_DIR).filter((f) => f.endsWith('.js')).sort();
 
-  const header = `/**
- * ============================================================================
- * BANAY KITCHEN — Official JavaScript Core (Modular, High-Performance & DRY)
- * WhatsApp: 0812-4449-609 | IG: @banay_kitchen | Lokasi: Dapur Rumah BaNay
- * Compiled automatically from js/*.js
- * ============================================================================
- */\n\n`;
+  const header = `/* BaNay Kitchen - script.js */\n\n`;
 
   const contents = files.map((f) => {
     return fs.readFileSync(path.join(JS_DIR, f), 'utf8').trim();
@@ -115,13 +99,13 @@ function runBuild() {
   buildJs();
   syncAssets();
   const duration = (performance.now() - start).toFixed(2);
-  console.log(`✨ [BaNay Kitchen] Build complete in ${duration}ms (root & public/)`);
+  console.log(`Build complete in ${duration}ms`);
 }
 
 // Watcher mode
 if (process.argv.includes('--watch')) {
   runBuild();
-  console.log('👀 Watching sections/, css/, js/, and src/ for changes... (Press Ctrl+C to stop)');
+  console.log('Watching for changes... (Ctrl+C to stop)');
 
   const watchDirs = [SECTIONS_DIR, CSS_DIR, JS_DIR, path.join(ROOT_DIR, 'src')];
   let debounceTimeout = null;
@@ -132,7 +116,7 @@ if (process.argv.includes('--watch')) {
         if (filename && !filename.startsWith('.')) {
           clearTimeout(debounceTimeout);
           debounceTimeout = setTimeout(() => {
-            console.log(`🔄 Changed: ${filename} -> Rebuilding...`);
+            console.log(`Rebuilding: ${filename}`);
             runBuild();
           }, 40);
         }

@@ -1,14 +1,6 @@
-/**
- * ============================================================================
- * BANAY KITCHEN — Official JavaScript Core (Modular, High-Performance & DRY)
- * WhatsApp: 0812-4449-609 | IG: @banay_kitchen | Lokasi: Dapur Rumah BaNay
- * Compiled automatically from js/*.js
- * ============================================================================
- */
+/* BaNay Kitchen - script.js */
 
-/* ----------------------------------------------------------------------------
- * 1. STORE CONFIGURATION & STATE
- * ------------------------------------------------------------------------- */
+// Konfigurasi toko & state keranjang
 const STORE_CONFIG = {
   storeName: 'BaNay Kitchen',
   whatsappNumber: '628124449609',
@@ -24,7 +16,6 @@ const STORE_CONFIG = {
   }
 };
 
-// Initial cart state (empty by default)
 const cartState = {
   strudel: 0,
   crispy: 0,
@@ -33,9 +24,7 @@ const cartState = {
   allpastry: 0
 };
 
-/* ----------------------------------------------------------------------------
- * 2. UTILITY HELPERS
- * ------------------------------------------------------------------------- */
+// Helper fungsi umum
 const Utils = {
   formatRupiah(amount) {
     return 'Rp ' + amount.toLocaleString('id-ID');
@@ -83,9 +72,7 @@ const Utils = {
   }
 };
 
-/* ----------------------------------------------------------------------------
- * 3. PRELOADER
- * ------------------------------------------------------------------------- */
+// Preloader
 function initPreloader() {
   const preloader = document.getElementById('preloader');
   const statusEl = document.getElementById('preloader-text');
@@ -116,11 +103,8 @@ function initPreloader() {
   }, 1500);
 }
 
-/* ----------------------------------------------------------------------------
- * 4. CHOREOGRAPHED ENTRANCES & TEXT SPLITTING
- * ------------------------------------------------------------------------- */
+// Animasi teks & split typography
 function initChoreographedAnimations() {
-  // Split Headlines into masked bouncy lines
   document.querySelectorAll('.hero-editorial-title, .section-serif-title').forEach((heading) => {
     const rawHtml = heading.innerHTML.trim();
     const lines = rawHtml.split(/<br\s*\/?>/i);
@@ -133,46 +117,33 @@ function initChoreographedAnimations() {
     heading.setAttribute('data-anim-lines', 'true');
   });
 
-  // Split Footer Signature Wordmark into bouncy interactive characters
-  const footerWord = document.querySelector('.footer-giant-word');
+  const footerWord = document.getElementById('footer-brand-word');
   if (footerWord) {
-    const text = footerWord.textContent.trim();
-    footerWord.innerHTML = text
-      .split('')
-      .map((ch, idx) =>
-        ch === ' '
-          ? '&nbsp;'
-          : `<span class="bouncy-char" style="--char-delay:${idx * 55}ms">${ch}</span>`
-      )
+    const chars = footerWord.textContent.trim().split('');
+    footerWord.innerHTML = chars
+      .map((c, i) => {
+        if (c === ' ') return ' ';
+        return `<span class="bouncy-char" style="--char-delay:${i * 45}ms">${c}</span>`;
+      })
       .join('');
-    footerWord.setAttribute('data-anim-chars', 'true');
   }
 
-  // Staggered delays setup
-  const setStagger = (selector, delayFn, animAttr = null) => {
-    document.querySelectorAll(selector).forEach((el, idx) => {
-      if (animAttr) el.setAttribute('data-anim', animAttr);
-      el.style.setProperty('--anim-delay', `${delayFn(idx)}ms`);
-    });
-  };
+  document.querySelectorAll('.bento-pillar').forEach((pillar, i) => {
+    pillar.style.setProperty('--anim-delay', `${i * 120}ms`);
+  });
 
-  setStagger('.bento-pillar', (i) => i * 115);
-  setStagger('.menu-arch-card', (i) => (i % 2) * 115);
-  setStagger('.gallery-polaroid', (i) => i * 95);
-  setStagger('.ig-thumb', (i) => i * 85, 'pop-scale');
-  setStagger('.footer-nav-col a', (i) => i * 50, 'fade-up');
+  document.querySelectorAll('.menu-arch-card').forEach((card, i) => {
+    card.style.setProperty('--anim-delay', `${(i % 2) * 140}ms`);
+  });
 }
 
-/* ----------------------------------------------------------------------------
- * 5. 60FPS BIDIRECTIONAL SCROLL-SCRUBBING ENGINE (COMPOSABLE CSS VARIABLES)
- * ------------------------------------------------------------------------- */
+// Scroll animations & marquee
 function initScrollScrubbingEngine() {
   const progressBar = document.getElementById('scroll-progress-bar');
   const animTargets = Array.from(
     document.querySelectorAll('[data-anim], [data-anim-lines="true"], [data-anim-chars="true"]')
   );
 
-  // Cached scrub element references
   const heroArchStage = document.getElementById('hero-arch-stage');
   const heroWordLeft = document.getElementById('hero-word-left');
   const heroWordRight = document.getElementById('hero-word-right');
@@ -193,7 +164,6 @@ function initScrollScrubbingEngine() {
   let targetScroll = window.scrollY;
   let isTicking = false;
 
-  // Cached unit set widths for seamless infinite marquee scrubbing
   let ribbon1SetWidth = 0;
   let ribbon2SetWidth = 0;
   let filmstripSetWidth = 0;
@@ -257,7 +227,7 @@ function initScrollScrubbingEngine() {
       progressBar.style.width = `${pct.toFixed(2)}%`;
     }
 
-    // A. Smooth In-View Reveal (Never hides elements at the top while still on screen)
+    // Reveal animasi saat elemen masuk viewport
     const enterBottom = vh * 0.94;
     const resetBottom = vh * 0.98;
     for (let i = 0; i < animTargets.length; i++) {
@@ -272,9 +242,9 @@ function initScrollScrubbingEngine() {
       }
     }
 
-    // B. Bounded Hero Elements Scrub (Orientation-Safe for Vertical & Horizontal Screens)
+    // Hero section scroll effects
     const heroProg = getSectionProgress(heroArchStage);
-    const heroCentered = (heroProg - 0.5) * 2; // -1 to +1
+    const heroCentered = (heroProg - 0.5) * 2;
 
     if (heroWordLeft) {
       const shiftX = Utils.clamp(-scrollVal * 0.12, -90, 0);
@@ -287,7 +257,6 @@ function initScrollScrubbingEngine() {
       heroWordRight.style.transform = `translate3d(${shiftX.toFixed(1)}px, ${shiftY.toFixed(1)}px, 0)`;
     }
     if (heroSeal) {
-      // Gentle upright wobble (-10deg to +10deg) so mascot is never upside-down
       heroSeal.style.setProperty('--scroll-rot', `${(heroCentered * 10).toFixed(1)}deg`);
     }
     if (heroSticker1) {
@@ -319,10 +288,9 @@ function initScrollScrubbingEngine() {
       }
     }
 
-    // Euclidean modulo: always positive, preventing glitches on rubber-banding / bounce
     const mod = (n, m) => ((n % m) + m) % m;
 
-    // C. Pastry Ribbon Marquee Scrub
+    // Ribbon marquee scroll
     const r1W = ribbon1SetWidth || (ribbonTrack1 ? ribbonTrack1.scrollWidth / 6 : 0);
     if (ribbonTrack1 && r1W > 0) {
       const shift1 = -mod(scrollVal * 0.38, r1W);
@@ -330,19 +298,18 @@ function initScrollScrubbingEngine() {
     }
     const r2W = ribbon2SetWidth || (ribbonTrack2 ? ribbonTrack2.scrollWidth / 6 : 0);
     if (ribbonTrack2 && r2W > 0) {
-      // Scrub in opposite direction while keeping both left & right edges seamlessly covered
       const shift2 = -r2W + mod(scrollVal * 0.38, r2W);
       ribbonTrack2.style.transform = `translate3d(${shift2.toFixed(1)}px, 0, 0)`;
     }
 
-    // D. Story Logo Halo Scrub
+    // Story logo rotation
     if (storySection && storyHalo) {
       const p = getSectionProgress(storySection);
       const scale = 0.92 + Math.sin(p * Math.PI) * 0.16;
       storyHalo.style.transform = `rotate(${(p * 240).toFixed(1)}deg) scale(${scale.toFixed(3)})`;
     }
 
-    // E. Gallery Polaroid Fan (Composable CSS Variables) & Filmstrip Loop
+    // Gallery polaroid fan & filmstrip
     if (galleryGrid) {
       if (window.innerWidth > 1024) {
         const p = getSectionProgress(galleryGrid);
@@ -396,25 +363,16 @@ function initScrollScrubbingEngine() {
   window.addEventListener('resize', () => {
     setupMarqueeTracks();
     requestTick();
-  }, { passive: true });
-  window.addEventListener('orientationchange', () => {
-    setupMarqueeTracks();
-    requestTick();
-  }, { passive: true });
-  window.addEventListener('load', () => {
-    setupMarqueeTracks();
-    requestTick();
-  }, { passive: true });
+  });
+
   requestTick();
 }
 
-/* ----------------------------------------------------------------------------
- * 6. 60FPS SPRING TILT, MAGNETIC SHAPES & TOUCHSCREEN TACTILE ENGINE
- * ------------------------------------------------------------------------- */
+// Tilt kartu 3D & efek magnetic hover
 function init3DTiltAndMagnetic() {
   const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-  // A. Smooth 60FPS Lerped 3D Perspective Tilt for Cards (Zero Stutter, Zero Snap)
+  // Tilt 3D pada kartu
   document.querySelectorAll('.tilt-card').forEach((card) => {
     let targetRX = 0;
     let targetRY = 0;
@@ -452,161 +410,147 @@ function init3DTiltAndMagnetic() {
         card.style.removeProperty('--hover-lift');
         card.style.removeProperty('--hover-scale');
         card.classList.remove('is-tilting');
-        rafId = null;
       }
     }
 
-    function startLoop() {
-      if (!rafId) rafId = requestAnimationFrame(updateTilt);
+    function onPointerMove(e) {
+      if (!canHover.matches) return;
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+
+      const maxTilt = parseFloat(card.getAttribute('data-tilt-max') || '9');
+      targetRX = (py - 0.5) * -maxTilt * 1.6;
+      targetRY = (px - 0.5) * maxTilt * 1.6;
+      targetLift = -8;
+      targetScale = 1.025;
+
+      if (!card.classList.contains('is-tilting')) {
+        card.classList.add('is-tilting');
+      }
+      if (!rafId || !isHovered) {
+        isHovered = true;
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateTilt);
+      }
     }
 
-    card.addEventListener('pointerenter', (e) => {
-      if (e.pointerType !== 'mouse') return;
-      isHovered = true;
-      card.classList.add('is-tilting');
-      targetLift = -6;
-      targetScale = 1.02;
-      startLoop();
-    });
-
-    card.addEventListener('pointermove', (e) => {
-      if (e.pointerType !== 'mouse') return;
-      // Do not tilt the parent card if user is hovering an inner button/stepper
-      if (e.target.closest('.btn-warm, .qty-stepper')) {
+    card.addEventListener('mousemove', (e) => {
+      if (e.target.closest('.qty-stepper, .btn-warm, .direct-wa-btn, button, a')) {
         targetRX = 0;
         targetRY = 0;
+        targetLift = -3;
+        targetScale = 1.01;
         return;
       }
-      const rect = card.getBoundingClientRect();
-      const nx = (e.clientX - rect.left) / Math.max(1, rect.width) - 0.5;
-      const ny = (e.clientY - rect.top) / Math.max(1, rect.height) - 0.5;
-      targetRX = ny * -10;
-      targetRY = nx * 10;
-      startLoop();
+      onPointerMove(e);
     });
 
-    card.addEventListener('pointerleave', () => {
+    card.addEventListener('mouseenter', () => {
+      isHovered = true;
+    });
+
+    card.addEventListener('mouseleave', () => {
       isHovered = false;
       targetRX = 0;
       targetRY = 0;
       targetLift = 0;
       targetScale = 1;
-      startLoop();
+      if (!rafId) {
+        rafId = requestAnimationFrame(updateTilt);
+      }
     });
   });
 
-  // B. Smooth Magnetic Cursor Tracking on Buttons, Stickers, Seal & Pills
-  const magneticSelector =
-    '.btn-warm, .floating-wa-btn, .cartoon-sticker, .rotating-seal-badge, .eyebrow-pill, .section-kicker';
+  // Magnetic cursor tracking
+  const magneticElements = document.querySelectorAll(
+    '.btn-warm, .rotating-seal-badge, .cartoon-sticker, .eyebrow-pill, .section-kicker, .live-status-badge'
+  );
 
-  document.querySelectorAll(magneticSelector).forEach((el) => {
-    let tx = 0;
-    let ty = 0;
-    let cx = 0;
-    let cy = 0;
-    let magRaf = null;
+  magneticElements.forEach((el) => {
+    let targetX = 0;
+    let targetY = 0;
+    let currX = 0;
+    let currY = 0;
+    let rafId = null;
     let active = false;
 
-    function tickMagnetic() {
-      cx = Utils.lerp(cx, tx, 0.26);
-      cy = Utils.lerp(cy, ty, 0.26);
-      el.style.setProperty('--mag-x', `${cx.toFixed(1)}px`);
-      el.style.setProperty('--mag-y', `${cy.toFixed(1)}px`);
+    function updateMag() {
+      currX = Utils.lerp(currX, targetX, 0.26);
+      currY = Utils.lerp(currY, targetY, 0.26);
+      el.style.setProperty('--mag-x', `${currX.toFixed(2)}px`);
+      el.style.setProperty('--mag-y', `${currY.toFixed(2)}px`);
 
-      if (active || Math.abs(tx - cx) > 0.08 || Math.abs(ty - cy) > 0.08) {
-        magRaf = requestAnimationFrame(tickMagnetic);
+      if (active || Math.abs(targetX - currX) > 0.05 || Math.abs(targetY - currY) > 0.05) {
+        rafId = requestAnimationFrame(updateMag);
       } else {
         el.style.removeProperty('--mag-x');
         el.style.removeProperty('--mag-y');
         el.classList.remove('is-magnetic-active');
-        magRaf = null;
       }
     }
 
-    el.addEventListener('pointerenter', (e) => {
-      if (e.pointerType !== 'mouse') return;
-      active = true;
-      el.classList.add('is-magnetic-active');
-      if (!magRaf) magRaf = requestAnimationFrame(tickMagnetic);
-    });
-
-    el.addEventListener('pointermove', (e) => {
-      if (e.pointerType !== 'mouse') return;
+    el.addEventListener('mousemove', (e) => {
+      if (!canHover.matches) return;
       const rect = el.getBoundingClientRect();
-      const dx = e.clientX - (rect.left + rect.width / 2);
-      const dy = e.clientY - (rect.top + rect.height / 2);
-      tx = Utils.clamp(dx * 0.22, -10, 10);
-      ty = Utils.clamp(dy * 0.26, -8, 8);
-      if (!magRaf) magRaf = requestAnimationFrame(tickMagnetic);
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = e.clientX - cx;
+      const dy = e.clientY - cy;
+
+      const pull = parseFloat(el.getAttribute('data-mag-pull') || '0.28');
+      targetX = Utils.clamp(dx * pull, -14, 14);
+      targetY = Utils.clamp(dy * pull, -12, 12);
+
+      if (!el.classList.contains('is-magnetic-active')) {
+        el.classList.add('is-magnetic-active');
+      }
+      if (!rafId || !active) {
+        active = true;
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateMag);
+      }
     });
 
-    el.addEventListener('pointerleave', () => {
+    el.addEventListener('mouseenter', () => {
+      active = true;
+    });
+
+    el.addEventListener('mouseleave', () => {
       active = false;
-      tx = 0;
-      ty = 0;
-      if (!magRaf) magRaf = requestAnimationFrame(tickMagnetic);
+      targetX = 0;
+      targetY = 0;
+      if (!rafId) {
+        rafId = requestAnimationFrame(updateMag);
+      }
     });
   });
 
-  // C. Universal Touchscreen & Click Tactile Spring Feedback (With 260ms Minimum Pop Hold)
-  const interactiveSelector = [
-    '.tilt-card',
-    '.btn-warm',
-    '.floating-wa-btn',
-    '.cartoon-sticker',
-    '.rotating-seal-badge',
-    '.eyebrow-pill',
-    '.section-kicker',
-    '.live-status-badge',
-    '.name-pill',
-    '.plus-circle',
-    '.pillar-num',
-    '.story-logo-stage',
-    '.menu-arch-tags span',
-    '.arch-badge',
-    '.arch-price-pill',
-    '.pol-tag',
-    '.film-pill',
-    '.contact-chip',
-    '.trust-item',
-    '.bouncy-char'
-  ].join(', ');
-
-  const touchTimers = new WeakMap();
-
-  document.addEventListener(
-    'pointerdown',
-    (e) => {
-      const target = e.target.closest(interactiveSelector);
-      if (!target) return;
-      if (touchTimers.has(target)) {
-        clearTimeout(touchTimers.get(target));
-      }
-      target.classList.add('is-touch-active');
-      const timer = setTimeout(() => {
-        target.classList.remove('is-touch-active');
-        touchTimers.delete(target);
-      }, 280);
-      touchTimers.set(target, timer);
-    },
-    { passive: true }
+  // Feedback klik / sentuhan pada tombol & elemen interaktif
+  const tactileTargets = document.querySelectorAll(
+    '.btn-warm, .tilt-card, .rotating-seal-badge, .cartoon-sticker, .eyebrow-pill, ' +
+    '.section-kicker, .live-status-badge, .name-pill, .plus-circle, .pillar-num, ' +
+    '.menu-arch-tags span, .arch-badge, .arch-price-pill, .pol-tag, .film-pill, ' +
+    '.contact-chip, .trust-item, .qty-btn, .bouncy-char, .drawer-link'
   );
 
-  const clearTouchActive = () => {
-    document.querySelectorAll('.is-touch-active').forEach((el) => {
-      if (!touchTimers.has(el)) {
-        el.classList.remove('is-touch-active');
-      }
-    });
-  };
+  tactileTargets.forEach((target) => {
+    let holdTimeout = null;
 
-  window.addEventListener('pointerup', clearTouchActive, { passive: true });
-  window.addEventListener('pointercancel', clearTouchActive, { passive: true });
+    function triggerActiveFeedback() {
+      target.classList.add('is-touch-active');
+      clearTimeout(holdTimeout);
+      holdTimeout = setTimeout(() => {
+        target.classList.remove('is-touch-active');
+      }, 260);
+    }
+
+    target.addEventListener('touchstart', triggerActiveFeedback, { passive: true });
+    target.addEventListener('mousedown', triggerActiveFeedback);
+  });
 }
 
-/* ----------------------------------------------------------------------------
- * 7. INTERACTIVE PASTRY EMOJI BURST (ALL SHAPES, BADGES & BUTTONS)
- * ------------------------------------------------------------------------- */
+// Efek partikel emoji saat klik
 function initInteractiveBurst() {
   const icons = ['🥐', '🍌', '🍫', '🧀', '✨', '🍨'];
 
@@ -665,9 +609,7 @@ function initInteractiveBurst() {
   });
 }
 
-/* ----------------------------------------------------------------------------
- * 8. SLIDE-OUT MENU & CART DRAWER
- * ------------------------------------------------------------------------- */
+// Menu samping & keranjang drawer
 function initDrawerMenu() {
   const drawer = document.getElementById('side-drawer');
   const backdrop = document.getElementById('drawer-backdrop');
@@ -693,37 +635,38 @@ function initDrawerMenu() {
   });
 }
 
-/* ----------------------------------------------------------------------------
- * 9. CART RENDERING & WHATSAPP ORDER MANAGEMENT
- * ------------------------------------------------------------------------- */
+// Logika keranjang & WhatsApp order
 function renderDrawerCart() {
   const container = document.getElementById('drawer-cart-items');
-  const totalEl = document.getElementById('drawer-cart-total');
-  const badgeCountEl = document.getElementById('floating-cart-count');
-  const navCountEl = document.getElementById('nav-cart-count');
-  if (!container || !totalEl) return;
+  const countBadgeNav = document.getElementById('cart-count-badge');
+  const countBadgeDrawer = document.getElementById('drawer-cart-badge');
+  const totalDisplay = document.getElementById('drawer-total-price');
+  if (!container) return;
 
   const { items, grandTotal, totalItems, hasCustomItem } = Utils.getCartBreakdown();
 
   if (items.length === 0) {
-    container.innerHTML = `<p class="drawer-empty-note">Keranjang masih kosong. Yuk pilih camilan dari dapur kami!</p>`;
+    container.innerHTML = `
+      <div class="empty-cart-state">
+        <span class="empty-cart-icon">🛒</span>
+        <p>Keranjangmu masih kosong nih.</p>
+        <a href="#menu" class="btn-warm btn-gold empty-browse-btn drawer-link">Pilih Menu Pastry</a>
+      </div>
+    `;
   } else {
     container.innerHTML = items
       .map(({ key, prod, qty, subtotal }) => {
-        const priceLabel = prod.isCustomPrice
-          ? `${qty}x (Sesuai Request)`
-          : `${qty} × ${Utils.formatRupiah(prod.price)} = ${Utils.formatRupiah(subtotal)}`;
-
+        const subtotalText = prod.isCustomPrice ? 'Harga sesuai request' : Utils.formatRupiah(subtotal);
         return `
-          <div class="drawer-item-row">
-            <div>
-              <div>${prod.name}</div>
-              <small class="drawer-item-sub">${priceLabel}</small>
+          <div class="drawer-cart-row">
+            <div class="cart-row-info">
+              <h4>${prod.name}</h4>
+              <span class="cart-row-price">${subtotalText}</span>
             </div>
-            <div class="drawer-item-controls">
-              <button type="button" class="cart-step-btn" data-cart-dec="${key}">−</button>
+            <div class="cart-row-controls">
+              <button type="button" class="cart-step-btn" data-cart-dec="${key}" aria-label="Kurangi ${prod.name}">−</button>
               <span class="cart-step-qty">${qty}</span>
-              <button type="button" class="cart-step-btn is-inc" data-cart-inc="${key}">+</button>
+              <button type="button" class="cart-step-btn" data-cart-inc="${key}" aria-label="Tambah ${prod.name}">+</button>
             </div>
           </div>
         `;
@@ -731,42 +674,47 @@ function renderDrawerCart() {
       .join('');
   }
 
-  // Update Total Label
-  if (grandTotal > 0 && hasCustomItem) {
-    totalEl.textContent = `${Utils.formatRupiah(grandTotal)} + Request`;
-  } else if (grandTotal > 0) {
-    totalEl.textContent = Utils.formatRupiah(grandTotal);
-  } else if (hasCustomItem) {
-    totalEl.textContent = 'Sesuai Request';
-  } else {
-    totalEl.textContent = 'Rp 0';
+  if (totalDisplay) {
+    if (grandTotal === 0 && !hasCustomItem) {
+      totalDisplay.textContent = 'Rp 0';
+    } else if (hasCustomItem && grandTotal === 0) {
+      totalDisplay.textContent = 'Custom Order';
+    } else if (hasCustomItem) {
+      totalDisplay.textContent = `${Utils.formatRupiah(grandTotal)} + Custom`;
+    } else {
+      totalDisplay.textContent = Utils.formatRupiah(grandTotal);
+    }
   }
 
-  // Update Badge Counts
-  const countStr = String(totalItems);
-  if (badgeCountEl) badgeCountEl.textContent = countStr;
-  if (navCountEl) navCountEl.textContent = countStr;
+  if (countBadgeNav) {
+    countBadgeNav.textContent = String(totalItems);
+    countBadgeNav.classList.toggle('has-items', totalItems > 0);
+  }
+  if (countBadgeDrawer) {
+    countBadgeDrawer.textContent = String(totalItems);
+  }
 }
 
 function applyStoreConfigToDOM() {
-  const mapsLink = document.getElementById('maps-direct-link');
-  if (mapsLink) {
-    mapsLink.href = STORE_CONFIG.googleMapsUrl;
-  }
-
-  Object.keys(STORE_CONFIG.products).forEach((key) => {
-    const prod = STORE_CONFIG.products[key];
-    const priceEl = document.getElementById(`price-${key}-display`);
-    if (priceEl) {
-      priceEl.textContent = prod.isCustomPrice ? 'SESUAI REQUEST' : Utils.formatRupiah(prod.price);
+  document.querySelectorAll('[data-product-price]').forEach((el) => {
+    const id = el.getAttribute('data-product-price');
+    const prod = STORE_CONFIG.products[id];
+    if (prod && !prod.isCustomPrice) {
+      el.textContent = Utils.formatRupiah(prod.price);
     }
   });
 
-  renderDrawerCart();
+  const waLink = document.getElementById('footer-wa-link');
+  if (waLink) {
+    waLink.href = Utils.buildWhatsAppUrl('Halo BaNay Kitchen! Mau tanya seputar pesanan.');
+    waLink.textContent = STORE_CONFIG.whatsappDisplay;
+  }
 }
 
 function initCartAndWhatsApp() {
-  // Stepper increment/decrement on catalog cards
+  renderDrawerCart();
+
+  // Tombol tambah/kurang qty di katalog
   document.querySelectorAll('.qty-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-id');
@@ -780,7 +728,7 @@ function initCartAndWhatsApp() {
     });
   });
 
-  // Add to cart button handler
+  // Tombol masuk keranjang
   document.querySelectorAll('.add-cart-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-id');
@@ -798,7 +746,7 @@ function initCartAndWhatsApp() {
     });
   });
 
-  // Event delegation for cart item increment/decrement inside drawer
+  // Event handler qty di dalam drawer
   const cartContainer = document.getElementById('drawer-cart-items');
   cartContainer?.addEventListener('click', (e) => {
     const decBtn = e.target.closest('[data-cart-dec]');
@@ -819,7 +767,7 @@ function initCartAndWhatsApp() {
     }
   });
 
-  // Direct WhatsApp order for single card
+  // Order langsung via WA per kartu produk
   document.querySelectorAll('.direct-wa-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-id');
@@ -848,11 +796,10 @@ function initCartAndWhatsApp() {
     });
   });
 
-  // Drawer WhatsApp checkout
+  // Checkout keranjang via WhatsApp
   document.getElementById('drawer-checkout-wa')?.addEventListener('click', () => {
     const { items, grandTotal, hasCustomItem } = Utils.getCartBreakdown();
 
-    // If cart is empty (0 items), open WhatsApp directly with NO template message
     if (items.length === 0) {
       Utils.openWhatsApp('');
       return;
@@ -883,16 +830,14 @@ function initCartAndWhatsApp() {
     Utils.openWhatsApp(lines.join('\n'));
   });
 
-  // Ask location via WhatsApp
+  // Tanya patokan via WhatsApp
   document.getElementById('ask-location-wa')?.addEventListener('click', () => {
     const msg = `Halo Kak Bagas & Naylah (*${STORE_CONFIG.storeName}*)! 👋 Saya mau tanya patokan rumah untuk Pick Up pesanan sesuai titik Google Maps (${STORE_CONFIG.googleMapsUrl}). Terima kasih!`;
     Utils.openWhatsApp(msg);
   });
 }
 
-/* ----------------------------------------------------------------------------
- * 10. APP LIFECYCLE BOOTSTRAP
- * ------------------------------------------------------------------------- */
+// Inisialisasi aplikasi
 document.addEventListener('DOMContentLoaded', () => {
   initChoreographedAnimations();
   initPreloader();

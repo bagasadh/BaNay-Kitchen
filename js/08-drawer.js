@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
- * 8. SLIDE-OUT MENU & CART DRAWER
- * ------------------------------------------------------------------------- */
+// Menu samping & keranjang drawer
 function initDrawerMenu() {
   const drawer = document.getElementById('side-drawer');
   const backdrop = document.getElementById('drawer-backdrop');

@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
- * 7. INTERACTIVE PASTRY EMOJI BURST (ALL SHAPES, BADGES & BUTTONS)
- * ------------------------------------------------------------------------- */
+// Efek partikel emoji saat klik
 function initInteractiveBurst() {
   const icons = ['🥐', '🍌', '🍫', '🧀', '✨', '🍨'];
 

@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   9. STORY SECTION (CERITA KAMI)
-   ------------------------------------------------------------------------- */
+/* Story Section */
 .story-bento-grid, .location-ig-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 2.1rem; align-items: stretch; }
 .bento-card { padding: 2.2rem; }
 .bento-main-story { display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; }

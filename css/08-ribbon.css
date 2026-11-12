@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   8. BIDIRECTIONAL RIBBON MARQUEE
-   ------------------------------------------------------------------------- */
+/* Ribbon Marquee */
 .ribbon-marquee-section { position: relative; padding: 1.5rem 0 2.5rem; overflow: hidden; }
 .ribbon-band { padding: 0.9rem 0; border-top: 3.5px solid var(--choco-dark); border-bottom: 3.5px solid var(--choco-dark); overflow: hidden; white-space: nowrap; }
 .band-dark { background: var(--choco-deep); color: var(--gold); transform: rotate(-1.5deg) scale(1.03); z-index: 2; position: relative; box-shadow: 0 6px 0 rgba(34, 16, 8, 0.25); }

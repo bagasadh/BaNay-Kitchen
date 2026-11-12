@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   2. GLOBAL RESET & BASE STYLES
-   ------------------------------------------------------------------------- */
+/* Base Styles */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html {
   scroll-behavior: smooth; background-color: var(--cream); color: var(--ink);

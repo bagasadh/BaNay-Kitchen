@@ -1,14 +1,12 @@
-/* ----------------------------------------------------------------------------
-   15. RESPONSIVE BREAKPOINTS (ALL DEVICES: DESKTOP, TAB, FOLD, IPHONE MINI–PRO MAX)
-   ------------------------------------------------------------------------- */
+/* Responsive Media Queries */
 
-/* A. Large Desktop & Ultrawide (1600px+) */
+/* Large desktop */
 @media (min-width: 1600px) {
   .section-container, .navbar-pill, .hero-grid { max-width: 1340px; }
   .gallery-fanned-grid { max-width: 1300px; gap: 1.85rem; }
 }
 
-/* B. Small Laptops & Tablet Landscape (max-width: 1160px) */
+/* Laptops / Landscape */
 @media (max-width: 1160px) {
   .nav-center-links { gap: clamp(0.55rem, 1.3vw, 1.15rem); font-size: clamp(1.12rem, 1.45vw, 1.3rem); }
   .nav-center-links a { padding: 0.2rem 0.5rem; }
@@ -17,7 +15,7 @@
   .arch-main-card { height: 390px; }
 }
 
-/* C. Tablet Portrait & Foldable Unfolded (max-width: 1024px) */
+/* Tablets */
 @media (max-width: 1024px) {
   .gallery-fanned-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 680px; gap: 1.35rem; }
   .pol-1, .pol-2, .pol-3, .pol-4 { --scroll-rot: 0deg; --scroll-y: 0px; }
@@ -25,7 +23,7 @@
   .menu-arch-photo { height: 265px; border-radius: 80px 80px 20px 20px; }
 }
 
-/* D. Tablets, Vertical Monitors & Phones (max-width: 960px) */
+/* Small tablets & landscape mobile */
 @media (max-width: 960px) {
   .nav-center-links { display: none; }
   .hero-grid, .story-bento-grid, .menu-arch-wide, .custom-order-sheet, .location-ig-grid, .footer-main-row {
@@ -41,7 +39,7 @@
   .menu-arch-wide .menu-arch-photo { min-height: 260px; border-radius: 24px; }
 }
 
-/* D2. Mobile & Vertical Viewport Hero Showcase Tuning (max-width: 768px) */
+/* Mobile hero layout */
 @media (max-width: 768px) {
   .hero-arch-stage {
     width: 100%;
@@ -105,7 +103,7 @@
   }
 }
 
-/* E. Phablets, iPhone Pro Max / Plus / S Ultra (max-width: 680px) */
+/* Mobile */
 @media (max-width: 680px) {
   .menu-arch-grid { grid-template-columns: minmax(0, 1fr); gap: 1.65rem; }
   .story-section, .menu-section, .location-section { padding: 3.4rem 0 3.8rem; }
@@ -117,7 +115,6 @@
   .hero-editorial-title em { -webkit-text-stroke: 2px var(--choco-dark); }
   .section-serif-title { font-size: clamp(1.85rem, 7.2vw, 2.65rem); }
 
-  /* Compact Circular Floating WhatsApp Button (Mobile FAB) */
   .floating-wa-widget {
     position: fixed;
     bottom: max(16px, calc(env(safe-area-inset-bottom, 0px) + 12px));
@@ -141,17 +138,13 @@
   .floating-wa-text {
     display: none;
   }
-  .floating-wa-btn .cart-badge-count {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    width: 22px;
-    height: 22px;
-    font-size: 0.74rem;
-  }
+
+  .film-card { width: 140px; height: 190px; }
+  .film-img-box { height: 110px; }
+  .footer-giant-word { font-size: clamp(1.6rem, 7.5vw, 2.8rem); -webkit-text-stroke: 2px var(--ivory); }
 }
 
-/* F. Standard & Compact Phones: iPhone 12/13/14/15, Mini, SE (max-width: 480px) */
+/* Compact mobile */
 @media (max-width: 480px) {
   .navbar-wrap { top: 8px; padding: 0 0.65rem; }
   .navbar-pill { padding: 0.42rem 0.55rem 0.42rem 0.7rem; }
@@ -197,7 +190,7 @@
   .drawer-link { font-size: 1rem; padding: 0.38rem 0.5rem; }
 }
 
-/* G. Ultra-Narrow / Galaxy Z Fold Cover Screen & Smallest Devices (max-width: 359px) */
+/* Extra small mobile */
 @media (max-width: 359px) {
   .section-container { padding: 0 0.7rem; }
   .brand-logo-name { font-size: 0.92rem; }
@@ -227,7 +220,7 @@
   .footer-giant-word { font-size: clamp(1.4rem, 7.2vw, 2.2rem); -webkit-text-stroke: 1.5px var(--ivory); }
 }
 
-/* H. Short Viewport Landscape Mode (Phones Rotated Horizontally) */
+/* Landscape mobile */
 @media (max-height: 540px) and (orientation: landscape) {
   .preloader-card { gap: 0.65rem; }
   .preloader-seal-wrap { width: 115px; height: 115px; }

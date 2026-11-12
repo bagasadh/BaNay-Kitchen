@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
- * 3. PRELOADER
- * ------------------------------------------------------------------------- */
+// Preloader
 function initPreloader() {
   const preloader = document.getElementById('preloader');
   const statusEl = document.getElementById('preloader-text');

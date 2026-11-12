@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   16. ACCESSIBILITY (PREFERS-REDUCED-MOTION)
-   ------------------------------------------------------------------------- */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

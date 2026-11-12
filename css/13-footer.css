@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   13. FOOTER & FLOATING WHATSAPP BUTTON
-   ------------------------------------------------------------------------- */
+/* Footer */
 .banay-footer { background: var(--choco-deep); color: var(--cream); padding: 4rem 0 2rem; border-top: 5px solid var(--choco-dark); overflow: hidden; }
 .footer-main-row { display: grid; grid-template-columns: 1.4fr 0.8fr 0.8fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px dashed rgba(247, 232, 211, 0.2); }
 .footer-logo-lockup { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem; }

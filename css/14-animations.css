@@ -1,7 +1,5 @@
-/* ----------------------------------------------------------------------------
-   14. INTERACTIVE ANIMATIONS, ZERO-DELAY HOVER/TOUCH & PARTICLES
-   ------------------------------------------------------------------------- */
-/* 3D Tilt Cards Base (Declared before [data-anim]:not(.is-inview) for clean cascade) */
+/* Animations & Interactive Effects */
+
 .tilt-card {
   position: relative;
   transform: translate3d(var(--mag-x, 0px), calc(var(--scroll-y, 0px) + var(--mag-y, 0px) + var(--hover-lift, 0px)), 0)
@@ -35,7 +33,6 @@
 [data-anim="slide-right"]:not(.is-inview) { transform: translate3d(24px, 14px, 0) rotate(2deg); }
 [data-anim="pop-scale"]:not(.is-inview) { transform: translate3d(0, 20px, 0) scale(0.86) rotate(-2deg); }
 
-/* Composed Transform: Scroll + Magnetic + 3D Tilt + Hover/Touch Scale (Zero Conflict!) */
 [data-anim].is-inview,
 .tilt-card.is-inview {
   opacity: 1;
@@ -47,7 +44,6 @@
              scale(var(--hover-scale, 1));
 }
 
-/* Eliminate all stagger delay once in view or interacted with (No Delay!) */
 [data-anim].is-inview:hover,
 [data-anim].is-inview:active,
 .is-interacting,
@@ -56,14 +52,13 @@
   transition-delay: 0ms !important;
 }
 
-/* While 60fps JS Lerp is actively driving tilt/magnetic, disable CSS transform lag */
 .is-tilting,
 .is-magnetic-active {
   transition: box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
   transition-delay: 0ms !important;
 }
 
-/* Interactive Shapes: Stickers, Rotating Seal, Pills, Badges, Tags & Chips */
+/* Badges & stickers */
 .cartoon-sticker {
   cursor: pointer; user-select: none; will-change: transform;
   transform: translate3d(var(--mag-x, 0px), calc(var(--scroll-y, 0px) + var(--mag-y, 0px) + var(--hover-lift, 0px)), 0)
@@ -106,7 +101,7 @@
   background: var(--gold-soft); box-shadow: 0 8px 0 var(--choco-dark);
 }
 
-/* Interactive Micro-Shapes: Name Pills, Plus Circle, Pillar Num, Menu Tags, Price Pills, Filmstrip, Chips */
+/* Micro elements & pills */
 .name-pill, .plus-circle, .pillar-num, .menu-arch-tags span,
 .arch-badge, .arch-price-pill, .pol-tag, .film-pill,
 .contact-chip, .trust-item, .story-logo-stage, .arch-card-tag, .arch-card-Tag {
@@ -154,7 +149,7 @@
   transform: translateY(-3px) scale(1.03); background: var(--gold-soft);
 }
 
-/* Buttons: Instant Snappy Magnetic + Touch Press */
+/* Buttons */
 .btn-warm, .floating-wa-btn {
   transform: translate3d(var(--mag-x, 0px), calc(var(--mag-y, 0px) + var(--hover-lift, 0px)), 0) scale(var(--hover-scale, 1));
   transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
@@ -165,7 +160,7 @@
   --hover-lift: 2px; --hover-scale: 0.96; box-shadow: 0 2px 0 var(--choco-dark);
 }
 
-/* Split Headlines & Bouncy Signature Wordmark */
+/* Text animations */
 .split-line-mask { display: block; padding: 0.04em 0; }
 .split-line-inner {
   display: block; opacity: 0; transform: translate3d(0, 26px, 0) scale(0.96) rotateZ(1.5deg);
@@ -189,6 +184,7 @@
   color: var(--ivory); transition-delay: 0ms !important; transition-duration: 0.2s !important;
 }
 
+/* Particle effect */
 .click-particle {
   position: fixed; pointer-events: none; z-index: 9998; font-size: 1.4rem;
   user-select: none; animation: particleFly 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;

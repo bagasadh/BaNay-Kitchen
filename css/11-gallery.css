@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   11. LOOKBOOK GALLERY & SEAMLESS INFINITE FILMSTRIP
-   ------------------------------------------------------------------------- */
+/* Gallery Section */
 .lookbook-section { position: relative; background: var(--choco-deep); color: var(--cream); overflow: hidden; }
 .choco-wave-top, .choco-wave-bottom { width: 100%; line-height: 0; background: var(--cream); }
 .choco-wave-bottom { background: var(--choco-deep); }

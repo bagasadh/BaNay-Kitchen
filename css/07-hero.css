@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   7. HERO SECTION & ARCH STAGE
-   ------------------------------------------------------------------------- */
+/* Hero Section */
 .hero-section { position: relative; padding: 2.5rem 1.5rem 5.5rem; overflow: hidden; }
 .hero-giant-backdrop {
   position: absolute; top: 28px; left: 0; right: 0; display: flex; justify-content: space-between;

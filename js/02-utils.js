@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
- * 2. UTILITY HELPERS
- * ------------------------------------------------------------------------- */
+// Helper fungsi umum
 const Utils = {
   formatRupiah(amount) {
     return 'Rp ' + amount.toLocaleString('id-ID');

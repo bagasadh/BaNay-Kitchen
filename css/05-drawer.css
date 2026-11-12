@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   5. SIDE DRAWER (NAV & CART)
-   ------------------------------------------------------------------------- */
+/* Drawer & Cart */
 .drawer-backdrop {
   position: fixed; inset: 0; background: rgba(34, 16, 8, 0.6); backdrop-filter: blur(3px);
   z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;

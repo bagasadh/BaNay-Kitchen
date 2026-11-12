@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   12. LOCATION & INSTAGRAM
-   ------------------------------------------------------------------------- */
+/* Location & Contact */
 .home-location-card, .ig-atelier-card { padding: 2.1rem; display: flex; flex-direction: column; justify-content: space-between; }
 .live-status-badge {
   display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold);

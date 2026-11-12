@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
- * 10. APP LIFECYCLE BOOTSTRAP
- * ------------------------------------------------------------------------- */
+// Inisialisasi aplikasi
 document.addEventListener('DOMContentLoaded', () => {
   initChoreographedAnimations();
   initPreloader();

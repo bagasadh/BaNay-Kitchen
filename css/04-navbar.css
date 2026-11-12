@@ -1,6 +1,4 @@
-/* ----------------------------------------------------------------------------
-   4. FLOATING NAVBAR & CARTOON BUTTONS
-   ------------------------------------------------------------------------- */
+/* Navbar */
 .navbar-wrap { position: sticky; top: 14px; z-index: 120; padding: 0 1.25rem; }
 .navbar-pill {
   max-width: 1240px; margin: 0 auto; background: var(--ivory);
