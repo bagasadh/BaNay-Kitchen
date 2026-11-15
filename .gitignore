@@ -9,3 +9,4 @@ Thumbs.db
 
 # Hosting
 .vercel
+!.env.example
