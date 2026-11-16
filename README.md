@@ -1,51 +1,45 @@
-# BaNay Kitchen 
+# BaNay Kitchen
 
-Website katalog dan pemesanan WhatsApp untuk **BaNay Kitchen** (Homemade Pastry & Dessert Buatan Ibu).
+Menu catalog and WhatsApp ordering site for **BaNay Kitchen** (homemade pastries and desserts).
 
----
+## Features
+- Full product catalog with photos
+- Shopping cart that sends orders directly to the admin's WhatsApp
+- Responsive layout for phone, tablet, and desktop
+- Interactive effects (card tilt, marquee text, click particles)
+- Plain HTML5, CSS3, and Vanilla JavaScript without heavy frameworks
 
-## Fitur
-- Katalog menu lengkap dengan foto produk
-- Keranjang pesanan langsung kirim ke WhatsApp admin
-- Desain responsif untuk HP, tablet, dan desktop
-- Animasi interaktif (tilt effect, marquee text, particle click)
-- Tanpa framework/library berat (pure HTML5, CSS3, Vanilla JS)
+## Running Locally
 
----
-
-## Cara Menjalankan
-
-### 1. Jalankan di browser
-Buka file `index.html` langsung di browser, atau jalankan local server:
+### 1. Open in Browser
+Open `index.html` directly, or start the local server:
 ```bash
 npm start
-# Server berjalan di http://localhost:3000
+# Runs at http://localhost:3000
 ```
 
-### 2. Build file
-Jika ada perubahan di folder `sections/`, `css/`, atau `js/`:
+### 2. Build Assets
+Run after editing files in `sections/`, `css/`, or `js/`:
 ```bash
 npm run build
 ```
 
-Untuk auto-build saat file disimpan:
+Watch for changes and rebuild automatically:
 ```bash
 npm run watch
 ```
 
----
-
-## Struktur Folder
+## Folder Structure
 
 ```text
-├── assets/         # Foto produk & logo
-├── css/            # File CSS modular
-├── js/             # Script logika & interaksi
-├── sections/       # Komponen potongan HTML
-├── src/            # Template master HTML
-├── public/         # Output build (untuk hosting)
-├── index.html      # File utama
-├── styles.css      # Hasil compile CSS
-├── script.js       # Hasil compile JS
-└── build.js        # Script build sederhana
+├── assets/         # Product photos & logo
+├── css/            # Modular CSS files
+├── js/             # Logic & interaction scripts
+├── sections/       # HTML section partials
+├── src/            # Master HTML template
+├── public/         # Build output for hosting
+├── index.html      # Entry HTML
+├── styles.css      # Compiled CSS
+├── script.js       # Compiled JS
+└── build.js        # Simple build script
 ```
