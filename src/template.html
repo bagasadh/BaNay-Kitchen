@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>BaNay Kitchen — Homemade Pastry &amp; Dessert Buatan Ibu</title>
-  <meta name="description" content="BaNay Kitchen — Usaha pastry &amp; dessert homemade buatan Ibu langsung dari dapur rumah, dinamai dari nama kedua buah hati: Bagas (kakak) &amp; Naylah (adik). Spesialis Banana Strudel, Banana Milk Crispy, QQ Ball Dessert, Beng Roll Pastry &amp; All Pastry." />
+  <title>BaNay Kitchen: Homemade Pastry &amp; Dessert Buatan Ibu</title>
+  <meta name="description" content="BaNay Kitchen: Usaha pastry &amp; dessert homemade buatan Ibu langsung dari dapur rumah, dinamai dari nama kedua buah hati: Bagas (kakak) &amp; Naylah (adik). Spesialis Banana Strudel, Banana Milk Crispy, QQ Ball Dessert, Beng Roll Pastry &amp; All Pastry." />
   <meta name="theme-color" content="#3A1F13" />
 
   <!-- Favicon -->
@@ -15,7 +15,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="BaNay Kitchen — Homemade Pastry &amp; Dessert Buatan Ibu" />
+  <meta property="og:title" content="BaNay Kitchen: Homemade Pastry &amp; Dessert Buatan Ibu" />
   <meta property="og:description" content="Pastry renyah &amp; cokelat lumer dari dapur rumah sendiri! Banana Strudel, Banana Milk Crispy, QQ Ball Dessert, Beng Roll &amp; All Pastry." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/logo.jpg" />
@@ -27,6 +27,9 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- Skip to content for keyboard accessibility -->
+  <a href="#menu" class="skip-link">Langsung ke Menu</a>
 
   <!-- Progress bar -->
   <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
@@ -54,6 +57,35 @@
   <!-- @include: sections/10-footer.html -->
 
   <!-- @include: sections/11-floating-wa.html -->
+
+  <!-- Toast Notification & Lightbox Modal -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="lightbox-modal" id="gallery-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-dialog" role="document">
+      <button type="button" class="lightbox-close" id="lightbox-close-btn" aria-label="Tutup preview foto">✕</button>
+      <div class="lightbox-media">
+        <img id="lightbox-img" src="" alt="" width="600" height="450" />
+      </div>
+      <div class="lightbox-info">
+        <div class="lightbox-badge-row">
+          <span class="lightbox-badge" id="lightbox-tag">PASTRY</span>
+          <span class="lightbox-price" id="lightbox-price"></span>
+        </div>
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
+        <div class="lightbox-actions">
+          <button type="button" class="btn-warm btn-gold" id="lightbox-add-cart">
+            + Tambah ke Keranjang
+          </button>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-warm btn-primary" id="lightbox-order-wa">
+            Pesan via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

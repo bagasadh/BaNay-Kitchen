@@ -14,8 +14,15 @@
           </p>
         </div>
 
+        <div class="menu-filter-bar" role="tablist" aria-label="Kategori Menu" data-anim="fade-up">
+          <button type="button" class="menu-filter-btn is-active" data-filter="all" role="tab" aria-selected="true">Semua Menu (5)</button>
+          <button type="button" class="menu-filter-btn" data-filter="pastry" role="tab" aria-selected="false">Pastry Panggang (3)</button>
+          <button type="button" class="menu-filter-btn" data-filter="dessert" role="tab" aria-selected="false">Dessert Segar (1)</button>
+          <button type="button" class="menu-filter-btn" data-filter="custom" role="tab" aria-selected="false">Custom Order (1)</button>
+        </div>
+
         <div class="menu-arch-grid">
-          <article class="menu-arch-card tilt-card" data-anim="fade-up">
+          <article class="menu-arch-card tilt-card" data-anim="fade-up" data-category="pastry">
             <div class="menu-arch-photo">
               <img src="assets/chocolate-banana-strudel.jpg" alt="Banana Strudel BaNay Kitchen" width="473" height="605" loading="lazy" decoding="async" />
               <span class="arch-badge">BEST SELLER</span>
@@ -48,7 +55,7 @@
             </div>
           </article>
 
-          <article class="menu-arch-card tilt-card" data-anim="fade-up">
+          <article class="menu-arch-card tilt-card" data-anim="fade-up" data-category="pastry">
             <div class="menu-arch-photo">
               <img src="assets/banana-milk-crispy.jpg" alt="Banana Milk Crispy BaNay Kitchen" width="465" height="660" loading="lazy" decoding="async" />
               <span class="arch-badge badge-gold">FAVORIT</span>
@@ -81,7 +88,7 @@
             </div>
           </article>
 
-          <article class="menu-arch-card tilt-card" data-anim="fade-up">
+          <article class="menu-arch-card tilt-card" data-anim="fade-up" data-category="dessert">
             <div class="menu-arch-photo">
               <img src="assets/qq-ball-dessert.jpg" alt="QQ Ball Dessert BaNay Kitchen" width="575" height="962" loading="lazy" decoding="async" />
               <span class="arch-badge">SEGAR &amp; CREAMY</span>
@@ -114,7 +121,7 @@
             </div>
           </article>
 
-          <article class="menu-arch-card tilt-card" data-anim="fade-up">
+          <article class="menu-arch-card tilt-card" data-anim="fade-up" data-category="pastry">
             <div class="menu-arch-photo">
               <img src="assets/beng-roll-pastry.jpg" alt="Beng Roll Pastry BaNay Kitchen" width="1200" height="896" loading="lazy" decoding="async" />
               <span class="arch-badge badge-gold">CHOCO CRUNCH</span>
@@ -147,7 +154,7 @@
             </div>
           </article>
 
-          <article class="menu-arch-card menu-arch-wide tilt-card" data-anim="pop-scale">
+          <article class="menu-arch-card menu-arch-wide tilt-card" data-anim="pop-scale" data-category="custom">
             <div class="menu-arch-photo">
               <img src="assets/all-pastry.jpg" alt="All Pastry - Aneka Kue Kulit Pastry BaNay Kitchen" width="900" height="500" loading="lazy" decoding="async" />
               <span class="arch-badge">TERGANTUNG REQUEST PEMBELI</span>
@@ -161,7 +168,7 @@
               </div>
               <h3>ALL PASTRY (SEMUA KUE DARI KULIT PASTRY)</h3>
               <p>
-                Mau pesan kreasi kue lainnya yang dibuat dari kulit <em>pastry</em>? Di dapur rumah <strong>BaNay Kitchen</strong>, harga dan varian <strong>tergantung request pembeli</strong> — bebas pilih kreasi kue kulit pastry untuk camilan rumah, <em>hampers</em>, atau acara spesial!
+                Mau pesan kreasi kue lainnya yang dibuat dari kulit <em>pastry</em>? Di dapur rumah <strong>BaNay Kitchen</strong>, harga dan varian <strong>tergantung request pembeli</strong>: bebas pilih kreasi kue kulit pastry untuk camilan rumah, <em>hampers</em>, atau acara spesial!
               </p>
               <div class="menu-card-actions">
                 <div class="qty-stepper" aria-label="Jumlah Request All Pastry">

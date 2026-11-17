@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>BaNay Kitchen — Homemade Pastry &amp; Dessert Buatan Ibu</title>
-  <meta name="description" content="BaNay Kitchen — Usaha pastry &amp; dessert homemade buatan Ibu langsung dari dapur rumah, dinamai dari nama kedua buah hati: Bagas (kakak) &amp; Naylah (adik). Spesialis Banana Strudel, Banana Milk Crispy, QQ Ball Dessert, Beng Roll Pastry &amp; All Pastry." />
+  <title>BaNay Kitchen: Homemade Pastry &amp; Dessert Buatan Ibu</title>
+  <meta name="description" content="BaNay Kitchen: Usaha pastry &amp; dessert homemade buatan Ibu langsung dari dapur rumah, dinamai dari nama kedua buah hati: Bagas (kakak) &amp; Naylah (adik). Spesialis Banana Strudel, Banana Milk Crispy, QQ Ball Dessert, Beng Roll Pastry &amp; All Pastry." />
   <meta name="theme-color" content="#3A1F13" />
 
   <!-- Favicon -->
@@ -15,7 +15,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="BaNay Kitchen — Homemade Pastry &amp; Dessert Buatan Ibu" />
+  <meta property="og:title" content="BaNay Kitchen: Homemade Pastry &amp; Dessert Buatan Ibu" />
   <meta property="og:description" content="Pastry renyah &amp; cokelat lumer dari dapur rumah sendiri! Banana Strudel, Banana Milk Crispy, QQ Ball Dessert, Beng Roll &amp; All Pastry." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/logo.jpg" />
@@ -27,6 +27,9 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- Skip to content for keyboard accessibility -->
+  <a href="#menu" class="skip-link">Langsung ke Menu</a>
 
   <!-- Progress bar -->
   <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
@@ -76,9 +79,9 @@
 
       <div class="nav-actions">
         <a href="#menu" class="btn-warm btn-gold">ORDER WA</a>
-        <button type="button" class="btn-warm btn-icon-menu" id="open-menu-btn" aria-label="Buka Keranjang &amp; Menu">
+        <button type="button" class="btn-warm btn-icon-menu" id="open-menu-btn" aria-label="Buka Keranjang Pesanan">
           <span>KERANJANG</span>
-          <span class="nav-cart-count" id="nav-cart-count">0</span>
+          <span class="nav-cart-count" id="cart-count-badge">0</span>
         </button>
       </div>
     </div>
@@ -86,7 +89,7 @@
 
   <!-- Drawer & Keranjang -->
   <div class="drawer-backdrop" id="drawer-backdrop"></div>
-  <aside class="side-drawer" id="side-drawer" aria-label="Navigasi &amp; Keranjang Pesanan">
+  <aside class="side-drawer" id="side-drawer" aria-label="Navigasi dan Keranjang Pesanan" aria-hidden="true">
     <div class="drawer-header">
       <div class="drawer-brand">
         <img src="assets/logo.jpg" alt="BaNay Kitchen" width="46" height="46" decoding="async" />
@@ -95,31 +98,51 @@
           <small>Homemade Buatan Ibu · Dapur Rumah</small>
         </div>
       </div>
-      <button type="button" class="drawer-close" id="close-menu-btn" aria-label="Tutup">✕</button>
+      <button type="button" class="drawer-close" id="close-menu-btn" aria-label="Tutup menu">✕</button>
     </div>
 
     <div class="drawer-body">
-      <div class="drawer-nav">
+      <nav class="drawer-nav" aria-label="Navigasi Menu Cepat">
         <a href="#top" class="drawer-link"><span>01</span> BERANDA</a>
         <a href="#cerita" class="drawer-link"><span>02</span> ARTI NAMA BANAY KITCHEN</a>
         <a href="#menu" class="drawer-link"><span>03</span> MENU &amp; HARGA</a>
         <a href="#galeri" class="drawer-link"><span>04</span> GALERI DAPUR KAMI</a>
         <a href="#lokasi" class="drawer-link"><span>05</span> LOKASI &amp; INSTAGRAM</a>
-      </div>
+      </nav>
 
       <div class="drawer-quick-order">
         <div class="drawer-order-head">
           <h4>KERANJANG PESANAN</h4>
-          <span>WA: 0812-4449-609</span>
+          <span class="drawer-cart-badge" id="drawer-cart-badge">0 item</span>
         </div>
         <div id="drawer-cart-items" class="drawer-cart-items"></div>
         <div class="drawer-cart-footer">
+          <div class="drawer-form-quick" id="drawer-form-quick" style="display:none;">
+            <div class="drawer-input-group">
+              <label for="order-customer-name">Nama Pemesan (opsional):</label>
+              <input type="text" id="order-customer-name" placeholder="Contoh: Kak Rina" />
+            </div>
+            <div class="drawer-input-group">
+              <label for="order-delivery-method">Metode Pengambilan:</label>
+              <select id="order-delivery-method">
+                <option value="Ambil Sendiri (Pick Up)">Ambil Sendiri ke Rumah (Pick Up)</option>
+                <option value="Kurir Instan / Ojol">Kirim via Kurir Instan / Ojol</option>
+              </select>
+            </div>
+            <div class="drawer-input-group">
+              <label for="order-customer-notes">Catatan Pesanan (opsional):</label>
+              <input type="text" id="order-customer-notes" placeholder="Contoh: Minta ekstra keju / ambil sore" />
+            </div>
+          </div>
           <div class="drawer-total-row">
             <span>Estimasi Total:</span>
-            <strong id="drawer-cart-total">Rp 0</strong>
+            <strong id="drawer-total-price">Rp 0</strong>
           </div>
           <button type="button" id="drawer-checkout-wa" class="btn-warm btn-wa full-width">
-            KIRIM PESANAN KE WHATSAPP ↗
+            KIRIM PESANAN KE WHATSAPP →
+          </button>
+          <button type="button" id="drawer-clear-cart" class="drawer-clear-btn" style="display:none;">
+            Kosongkan Keranjang
           </button>
         </div>
       </div>
@@ -148,7 +171,7 @@
           </h1>
 
           <p class="hero-lead" data-anim="fade-up">
-            Selamat datang di <strong>BaNay Kitchen</strong> — usaha <em>homemade</em> buatan <strong>Ibu</strong> yang dinamai dari singkatan nama kedua buah hatinya: <strong>Bagas</strong> (kakak) &amp; <strong>Naylah</strong> (adik)! Semua kue dipanggang hangat langsung dari <strong>dapur rumah sendiri</strong> dengan kulit <em>puff pastry</em> berlapis, pisang manis, cokelat lumer, keju gondrong, dan kuah <em>creamy</em>.
+            Selamat datang di <strong>BaNay Kitchen</strong>, usaha <em>homemade</em> buatan <strong>Ibu</strong> yang dinamai dari singkatan nama kedua buah hatinya: <strong>Bagas</strong> (kakak) &amp; <strong>Naylah</strong> (adik)! Semua kue dipanggang hangat langsung dari <strong>dapur rumah sendiri</strong> dengan kulit <em>puff pastry</em> berlapis, pisang manis, cokelat lumer, keju gondrong, dan kuah <em>creamy</em>.
           </p>
 
           <div class="hero-cta-group" data-anim="fade-up">
@@ -320,7 +343,7 @@
             <div class="story-card-body">
               <h3>USAHA BUATAN IBU, DINAMAI DARI KAKAK BAGAS &amp; ADIK NAYLAH</h3>
               <p>
-                Usaha kue dan dessert ini dirintis serta dibuat langsung oleh <strong>Ibu</strong> di rumah. Nama <strong>BaNay</strong> diambil Ibu dari gabungan nama kedua anaknya — <strong>Bagas</strong> (kakak laki-laki) dan <strong>Naylah</strong> (adik perempuan) yang juga menjadi maskot di logo kami! Sedangkan <strong>Kitchen</strong> melambangkan dapur rumah kami sendiri tempat Ibu memanggang semua pesanan dengan penuh kasih sayang.
+                Usaha kue dan dessert ini dirintis serta dibuat langsung oleh <strong>Ibu</strong> di rumah. Nama <strong>BaNay</strong> diambil Ibu dari gabungan nama kedua anaknya: <strong>Bagas</strong> (kakak laki-laki) dan <strong>Naylah</strong> (adik perempuan) yang juga menjadi maskot di logo kami! Sedangkan <strong>Kitchen</strong> melambangkan dapur rumah kami sendiri tempat Ibu memanggang semua pesanan dengan penuh kasih sayang.
               </p>
             </div>
           </article>
@@ -376,8 +399,15 @@
           </p>
         </div>
 
+        <div class="menu-filter-bar" role="tablist" aria-label="Kategori Menu" data-anim="fade-up">
+          <button type="button" class="menu-filter-btn is-active" data-filter="all" role="tab" aria-selected="true">Semua Menu (5)</button>
+          <button type="button" class="menu-filter-btn" data-filter="pastry" role="tab" aria-selected="false">Pastry Panggang (3)</button>
+          <button type="button" class="menu-filter-btn" data-filter="dessert" role="tab" aria-selected="false">Dessert Segar (1)</button>
+          <button type="button" class="menu-filter-btn" data-filter="custom" role="tab" aria-selected="false">Custom Order (1)</button>
+        </div>
+
         <div class="menu-arch-grid">
-          <article class="menu-arch-card tilt-card" data-anim="fade-up">
+          <article class="menu-arch-card tilt-card" data-anim="fade-up" data-category="pastry">
             <div class="menu-arch-photo">
               <img src="assets/chocolate-banana-strudel.jpg" alt="Banana Strudel BaNay Kitchen" width="473" height="605" loading="lazy" decoding="async" />
               <span class="arch-badge">BEST SELLER</span>
@@ -410,7 +440,7 @@
             </div>
           </article>
 
-          <article class="menu-arch-card tilt-card" data-anim="fade-up">
+          <article class="menu-arch-card tilt-card" data-anim="fade-up" data-category="pastry">
             <div class="menu-arch-photo">
               <img src="assets/banana-milk-crispy.jpg" alt="Banana Milk Crispy BaNay Kitchen" width="465" height="660" loading="lazy" decoding="async" />
               <span class="arch-badge badge-gold">FAVORIT</span>
@@ -443,7 +473,7 @@
             </div>
           </article>
 
-          <article class="menu-arch-card tilt-card" data-anim="fade-up">
+          <article class="menu-arch-card tilt-card" data-anim="fade-up" data-category="dessert">
             <div class="menu-arch-photo">
               <img src="assets/qq-ball-dessert.jpg" alt="QQ Ball Dessert BaNay Kitchen" width="575" height="962" loading="lazy" decoding="async" />
               <span class="arch-badge">SEGAR &amp; CREAMY</span>
@@ -476,7 +506,7 @@
             </div>
           </article>
 
-          <article class="menu-arch-card tilt-card" data-anim="fade-up">
+          <article class="menu-arch-card tilt-card" data-anim="fade-up" data-category="pastry">
             <div class="menu-arch-photo">
               <img src="assets/beng-roll-pastry.jpg" alt="Beng Roll Pastry BaNay Kitchen" width="1200" height="896" loading="lazy" decoding="async" />
               <span class="arch-badge badge-gold">CHOCO CRUNCH</span>
@@ -509,7 +539,7 @@
             </div>
           </article>
 
-          <article class="menu-arch-card menu-arch-wide tilt-card" data-anim="pop-scale">
+          <article class="menu-arch-card menu-arch-wide tilt-card" data-anim="pop-scale" data-category="custom">
             <div class="menu-arch-photo">
               <img src="assets/all-pastry.jpg" alt="All Pastry - Aneka Kue Kulit Pastry BaNay Kitchen" width="900" height="500" loading="lazy" decoding="async" />
               <span class="arch-badge">TERGANTUNG REQUEST PEMBELI</span>
@@ -523,7 +553,7 @@
               </div>
               <h3>ALL PASTRY (SEMUA KUE DARI KULIT PASTRY)</h3>
               <p>
-                Mau pesan kreasi kue lainnya yang dibuat dari kulit <em>pastry</em>? Di dapur rumah <strong>BaNay Kitchen</strong>, harga dan varian <strong>tergantung request pembeli</strong> — bebas pilih kreasi kue kulit pastry untuk camilan rumah, <em>hampers</em>, atau acara spesial!
+                Mau pesan kreasi kue lainnya yang dibuat dari kulit <em>pastry</em>? Di dapur rumah <strong>BaNay Kitchen</strong>, harga dan varian <strong>tergantung request pembeli</strong>: bebas pilih kreasi kue kulit pastry untuk camilan rumah, <em>hampers</em>, atau acara spesial!
               </p>
               <div class="menu-card-actions">
                 <div class="qty-stepper" aria-label="Jumlah Request All Pastry">
@@ -561,12 +591,12 @@
             <em>PERHATIAN PENUH DI RUMAH!</em>
           </h2>
           <p class="lookbook-sub" data-anim="fade-up">
-            Dibuat langsung oleh Ibu dari meja dapur rumah <strong>BaNay Kitchen</strong> ke tanganmu — <em>fresh</em>, higienis, dan penuh topping di setiap gigitan.
+            Dibuat langsung oleh Ibu dari meja dapur rumah <strong>BaNay Kitchen</strong> ke tanganmu, <em>fresh</em>, higienis, dan penuh topping di setiap gigitan.
           </p>
         </div>
 
         <div class="gallery-fanned-grid" id="gallery-fanned-grid">
-          <figure class="gallery-polaroid pol-1 tilt-card" data-anim="fade-up">
+          <figure class="gallery-polaroid pol-1 tilt-card" data-anim="fade-up" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Lihat foto Banana Strudel" data-lightbox="true" data-img="assets/chocolate-banana-strudel.jpg" data-title="Banana Strudel" data-tag="BEST SELLER" data-price="Rp 65.000" data-id="strudel" data-desc="Pastry pisang renyah isi cokelat lumer dan taburan keju melimpah. Dipanggang hangat langsung dari dapur rumah.">
             <div class="pol-img-box">
               <img src="assets/chocolate-banana-strudel.jpg" alt="Banana Strudel Fresh dari Dapur" width="473" height="605" loading="lazy" decoding="async" />
               <span class="pol-tag">RP 65.000</span>
@@ -577,7 +607,7 @@
             </figcaption>
           </figure>
 
-          <figure class="gallery-polaroid pol-2 tilt-card" data-anim="fade-up">
+          <figure class="gallery-polaroid pol-2 tilt-card" data-anim="fade-up" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Lihat foto Banana Milk Crispy" data-lightbox="true" data-img="assets/banana-milk-crispy.jpg" data-title="Banana Milk Crispy" data-tag="FAVORIT" data-price="Rp 35.000" data-id="crispy" data-desc="Puff pastry mangkuk susu vanila lembut dengan taburan keju gondrong, choco chips, dan sliced almond panggang.">
             <div class="pol-img-box">
               <img src="assets/banana-milk-crispy.jpg" alt="Banana Milk Crispy Topping Keju &amp; Almond" width="465" height="660" loading="lazy" decoding="async" />
               <span class="pol-tag tag-gold">RP 35.000</span>
@@ -588,7 +618,7 @@
             </figcaption>
           </figure>
 
-          <figure class="gallery-polaroid pol-3 tilt-card" data-anim="fade-up">
+          <figure class="gallery-polaroid pol-3 tilt-card" data-anim="fade-up" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Lihat foto QQ Ball Dessert" data-lightbox="true" data-img="assets/qq-ball-dessert.jpg" data-title="QQ Ball Dessert" data-tag="CREAMY" data-price="Rp 12.000" data-id="qqball" data-desc="Dessert cup segar berisi bola-bola ubi dan taro kenyal berpadu kuah susu creamy dan biji selasih segar.">
             <div class="pol-img-box">
               <img src="assets/qq-ball-dessert.jpg" alt="QQ Ball Dessert Cup BaNay Kitchen" width="575" height="962" loading="lazy" decoding="async" />
               <span class="pol-tag">RP 12.000</span>
@@ -599,7 +629,7 @@
             </figcaption>
           </figure>
 
-          <figure class="gallery-polaroid pol-4 tilt-card" data-anim="fade-up">
+          <figure class="gallery-polaroid pol-4 tilt-card" data-anim="fade-up" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Lihat foto Beng Roll Pastry" data-lightbox="true" data-img="assets/beng-roll-pastry.jpg" data-title="Beng Roll Pastry" data-tag="CRUNCHY" data-price="Rp 20.000" data-id="bengroll" data-desc="Gulungan pastry renyah isi wafer Beng-Beng cokelat karamel dengan taburan keju parut gurih.">
             <div class="pol-img-box">
               <img src="assets/beng-roll-pastry.jpg" alt="Beng Roll Pastry Cokelat Renyah" width="1200" height="896" loading="lazy" decoding="async" />
               <span class="pol-tag tag-gold">RP 20.000</span>
@@ -789,14 +819,14 @@
 
         <div class="footer-nav-col">
           <h5>KONTAK &amp; SOSIAL</h5>
-          <a href="https://wa.me/628124449609" target="_blank" rel="noopener noreferrer">WhatsApp: 0812-4449-609</a>
+          <a href="https://wa.me/628124449609" id="footer-wa-link" target="_blank" rel="noopener noreferrer">WhatsApp: 0812-4449-609</a>
           <a href="https://www.instagram.com/banay_kitchen?cplk=OTV3bjJnamZrZmNy" target="_blank" rel="noopener noreferrer">Instagram: @banay_kitchen</a>
           <a href="https://maps.app.goo.gl/5kShEDrs7w14mmXK6" target="_blank" rel="noopener noreferrer">Google Maps Lokasi Rumah ↗</a>
         </div>
       </div>
 
       <div class="footer-signature-banner">
-        <div class="footer-giant-word" aria-label="BANAY KITCHEN">BANAY KITCHEN</div>
+        <div class="footer-giant-word" id="footer-brand-word" aria-label="BANAY KITCHEN">BANAY KITCHEN</div>
       </div>
 
       <div class="footer-bottom-bar">
@@ -815,6 +845,35 @@
       <span class="floating-wa-text">ORDER WA</span>
       <span class="cart-badge-count" id="floating-cart-count">0</span>
     </button>
+  </div>
+
+  <!-- Toast Notification & Lightbox Modal -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="lightbox-modal" id="gallery-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-dialog" role="document">
+      <button type="button" class="lightbox-close" id="lightbox-close-btn" aria-label="Tutup preview foto">✕</button>
+      <div class="lightbox-media">
+        <img id="lightbox-img" src="" alt="" width="600" height="450" />
+      </div>
+      <div class="lightbox-info">
+        <div class="lightbox-badge-row">
+          <span class="lightbox-badge" id="lightbox-tag">PASTRY</span>
+          <span class="lightbox-price" id="lightbox-price"></span>
+        </div>
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
+        <div class="lightbox-actions">
+          <button type="button" class="btn-warm btn-gold" id="lightbox-add-cart">
+            + Tambah ke Keranjang
+          </button>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-warm btn-primary" id="lightbox-order-wa">
+            Pesan via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>

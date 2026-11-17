@@ -1,6 +1,6 @@
   <!-- Drawer & Keranjang -->
   <div class="drawer-backdrop" id="drawer-backdrop"></div>
-  <aside class="side-drawer" id="side-drawer" aria-label="Navigasi &amp; Keranjang Pesanan">
+  <aside class="side-drawer" id="side-drawer" aria-label="Navigasi dan Keranjang Pesanan" aria-hidden="true">
     <div class="drawer-header">
       <div class="drawer-brand">
         <img src="assets/logo.jpg" alt="BaNay Kitchen" width="46" height="46" decoding="async" />
@@ -9,31 +9,51 @@
           <small>Homemade Buatan Ibu · Dapur Rumah</small>
         </div>
       </div>
-      <button type="button" class="drawer-close" id="close-menu-btn" aria-label="Tutup">✕</button>
+      <button type="button" class="drawer-close" id="close-menu-btn" aria-label="Tutup menu">✕</button>
     </div>
 
     <div class="drawer-body">
-      <div class="drawer-nav">
+      <nav class="drawer-nav" aria-label="Navigasi Menu Cepat">
         <a href="#top" class="drawer-link"><span>01</span> BERANDA</a>
         <a href="#cerita" class="drawer-link"><span>02</span> ARTI NAMA BANAY KITCHEN</a>
         <a href="#menu" class="drawer-link"><span>03</span> MENU &amp; HARGA</a>
         <a href="#galeri" class="drawer-link"><span>04</span> GALERI DAPUR KAMI</a>
         <a href="#lokasi" class="drawer-link"><span>05</span> LOKASI &amp; INSTAGRAM</a>
-      </div>
+      </nav>
 
       <div class="drawer-quick-order">
         <div class="drawer-order-head">
           <h4>KERANJANG PESANAN</h4>
-          <span>WA: 0812-4449-609</span>
+          <span class="drawer-cart-badge" id="drawer-cart-badge">0 item</span>
         </div>
         <div id="drawer-cart-items" class="drawer-cart-items"></div>
         <div class="drawer-cart-footer">
+          <div class="drawer-form-quick" id="drawer-form-quick" style="display:none;">
+            <div class="drawer-input-group">
+              <label for="order-customer-name">Nama Pemesan (opsional):</label>
+              <input type="text" id="order-customer-name" placeholder="Contoh: Kak Rina" />
+            </div>
+            <div class="drawer-input-group">
+              <label for="order-delivery-method">Metode Pengambilan:</label>
+              <select id="order-delivery-method">
+                <option value="Ambil Sendiri (Pick Up)">Ambil Sendiri ke Rumah (Pick Up)</option>
+                <option value="Kurir Instan / Ojol">Kirim via Kurir Instan / Ojol</option>
+              </select>
+            </div>
+            <div class="drawer-input-group">
+              <label for="order-customer-notes">Catatan Pesanan (opsional):</label>
+              <input type="text" id="order-customer-notes" placeholder="Contoh: Minta ekstra keju / ambil sore" />
+            </div>
+          </div>
           <div class="drawer-total-row">
             <span>Estimasi Total:</span>
-            <strong id="drawer-cart-total">Rp 0</strong>
+            <strong id="drawer-total-price">Rp 0</strong>
           </div>
           <button type="button" id="drawer-checkout-wa" class="btn-warm btn-wa full-width">
-            KIRIM PESANAN KE WHATSAPP ↗
+            KIRIM PESANAN KE WHATSAPP →
+          </button>
+          <button type="button" id="drawer-clear-cart" class="drawer-clear-btn" style="display:none;">
+            Kosongkan Keranjang
           </button>
         </div>
       </div>
